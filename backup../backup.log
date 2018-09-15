@@ -1,0 +1,112 @@
+2018-08-17 17:10 backup started!
+/home/tanxiaoze/test1 started
+2018-08-17 17:10 [32m backup [0m /home/tanxiaoze/test1 home_tanxiaoze_test1_2018_08_17_17_10.tar.gz +4.0K	/home/tanxiaoze/backup/home_tanxiaoze_test1_2018_08_17_17_10.tar.gz
+/home/tanxiaoze/test2 started
+2018-08-17 17:10 [32m backup [0m /home/tanxiaoze/test2 home_tanxiaoze_test2_2018_08_17_17_10.tar.gz +4.0K	/home/tanxiaoze/backup/home_tanxiaoze_test2_2018_08_17_17_10.tar.gz
+2018-08-17 17:10 [32m delete [0m /home/tanxiaoze/backup/home_tanxiaoze_test2_2018_08_17_16_55.tar.gz -4.0K	/home/tanxiaoze/backup/home_tanxiaoze_test2_2018_08_17_16_55.tar.gz
+2018-08-17 17:10 [32m delete [0m /home/tanxiaoze/backup/home_tanxiaoze_test1_2018_08_17_16_55.tar.gz -4.0K	/home/tanxiaoze/backup/home_tanxiaoze_test1_2018_08_17_16_55.tar.gz
+2018-08-17 17:15 backup started!
+/home/tanxiaoze/test1 started
+2018-08-17 17:15 [32m backup [0m /home/tanxiaoze/test1 home_tanxiaoze_test1_2018_08_17_17_15.tar.gz +4.0K	/home/tanxiaoze/backup/home_tanxiaoze_test1_2018_08_17_17_15.tar.gz
+/home/tanxiaoze/test2 started
+2018-08-17 17:15 [32m backup [0m /home/tanxiaoze/test2 home_tanxiaoze_test2_2018_08_17_17_15.tar.gz +4.0K	/home/tanxiaoze/backup/home_tanxiaoze_test2_2018_08_17_17_15.tar.gz
+2018-08-17 17:15 [32m delete [0m /home/tanxiaoze/backup/home_tanxiaoze_test1_2018_08_17_17_10.tar.gz -4.0K	/home/tanxiaoze/backup/home_tanxiaoze_test1_2018_08_17_17_10.tar.gz
+2018-08-17 17:15 [32m delete [0m /home/tanxiaoze/backup/home_tanxiaoze_test2_2018_08_17_17_10.tar.gz -4.0K	/home/tanxiaoze/backup/home_tanxiaoze_test2_2018_08_17_17_10.tar.gz
+2018-08-17 17:20 backup started!
+/home/tanxiaoze/test1 started
+2018-08-17 17:20 [32m backup [0m /home/tanxiaoze/test1 home_tanxiaoze_test1_2018_08_17_17_20.tar.gz +4.0K	/home/tanxiaoze/backup/home_tanxiaoze_test1_2018_08_17_17_20.tar.gz
+/home/tanxiaoze/test2 started
+2018-08-17 17:20 [32m backup [0m /home/tanxiaoze/test2 home_tanxiaoze_test2_2018_08_17_17_20.tar.gz +4.0K	/home/tanxiaoze/backup/home_tanxiaoze_test2_2018_08_17_17_20.tar.gz
+2018-08-17 17:20 [32m delete [0m /home/tanxiaoze/backup/home_tanxiaoze_test2_2018_08_17_17_15.tar.gz -4.0K	/home/tanxiaoze/backup/home_tanxiaoze_test2_2018_08_17_17_15.tar.gz
+2018-08-17 17:20 [32m delete [0m /home/tanxiaoze/backup/home_tanxiaoze_test1_2018_08_17_17_15.tar.gz -4.0K	/home/tanxiaoze/backup/home_tanxiaoze_test1_2018_08_17_17_15.tar.gz
+2018-08-17 17:21 backup started!
+/home/tanxiaoze/test1 started
+2018-08-17 17:21 [32m backup [0m /home/tanxiaoze/test1 home_tanxiaoze_test1_2018_08_17_17_21.tar.gz +4.0K	/home/tanxiaoze/backup/home_tanxiaoze_test1_2018_08_17_17_21.tar.gz
+/home/tanxiaoze/test2 started
+2018-08-17 17:21 [32m backup [0m /home/tanxiaoze/test2 home_tanxiaoze_test2_2018_08_17_17_21.tar.gz +4.0K	/home/tanxiaoze/backup/home_tanxiaoze_test2_2018_08_17_17_21.tar.gz
+2018-08-17 17:21 [32m delete [0m /home/tanxiaoze/backup/home_tanxiaoze_test2_2018_08_17_17_20.tar.gz -4.0K	/home/tanxiaoze/backup/home_tanxiaoze_test2_2018_08_17_17_20.tar.gz
+2018-08-17 17:21 [32m delete [0m /home/tanxiaoze/backup/home_tanxiaoze_test1_2018_08_17_17_20.tar.gz -4.0K	/home/tanxiaoze/backup/home_tanxiaoze_test1_2018_08_17_17_20.tar.gz
+2018-08-17 17:22 backup started!
+/home/tanxiaoze/test1 started
+2018-08-17 17:22 [32m backup [0m /home/tanxiaoze/test1 home_tanxiaoze_test1_2018_08_17_17_22.tar.gz +4.0K	/home/tanxiaoze/backup/home_tanxiaoze_test1_2018_08_17_17_22.tar.gz
+/home/tanxiaoze/test2 started
+2018-08-17 17:22 [32m backup [0m /home/tanxiaoze/test2 home_tanxiaoze_test2_2018_08_17_17_22.tar.gz +4.0K	/home/tanxiaoze/backup/home_tanxiaoze_test2_2018_08_17_17_22.tar.gz
+2018-08-17 17:22 [32m delete [0m /home/tanxiaoze/backup/home_tanxiaoze_test2_2018_08_17_17_21.tar.gz -4.0K	/home/tanxiaoze/backup/home_tanxiaoze_test2_2018_08_17_17_21.tar.gz
+2018-08-17 17:22 [32m delete [0m /home/tanxiaoze/backup/home_tanxiaoze_test1_2018_08_17_17_21.tar.gz -4.0K	/home/tanxiaoze/backup/home_tanxiaoze_test1_2018_08_17_17_21.tar.gz
+2018-08-17 17:23 backup started!
+/home/tanxiaoze/test1 started
+2018-08-17 17:23 [32m backup [0m /home/tanxiaoze/test1 home_tanxiaoze_test1_2018_08_17_17_23.tar.gz +4.0K	/home/tanxiaoze/backup/home_tanxiaoze_test1_2018_08_17_17_23.tar.gz
+/home/tanxiaoze/test2 started
+2018-08-17 17:23 [32m backup [0m /home/tanxiaoze/test2 home_tanxiaoze_test2_2018_08_17_17_23.tar.gz +4.0K	/home/tanxiaoze/backup/home_tanxiaoze_test2_2018_08_17_17_23.tar.gz
+2018-08-17 17:23 [32m delete [0m /home/tanxiaoze/backup/home_tanxiaoze_test2_2018_08_17_17_22.tar.gz -4.0K	/home/tanxiaoze/backup/home_tanxiaoze_test2_2018_08_17_17_22.tar.gz
+2018-08-17 17:23 [32m delete [0m /home/tanxiaoze/backup/home_tanxiaoze_test1_2018_08_17_17_22.tar.gz -4.0K	/home/tanxiaoze/backup/home_tanxiaoze_test1_2018_08_17_17_22.tar.gz
+2018-08-17 17:24 backup started!
+/home/tanxiaoze/test1 started
+2018-08-17 17:24 [32m backup [0m /home/tanxiaoze/test1 home_tanxiaoze_test1_2018_08_17_17_24.tar.gz +4.0K	/home/tanxiaoze/backup/home_tanxiaoze_test1_2018_08_17_17_24.tar.gz
+/home/tanxiaoze/test2 started
+2018-08-17 17:24 [32m backup [0m /home/tanxiaoze/test2 home_tanxiaoze_test2_2018_08_17_17_24.tar.gz +4.0K	/home/tanxiaoze/backup/home_tanxiaoze_test2_2018_08_17_17_24.tar.gz
+2018-08-17 17:24 [32m delete [0m /home/tanxiaoze/backup/home_tanxiaoze_test2_2018_08_17_17_23.tar.gz -4.0K	/home/tanxiaoze/backup/home_tanxiaoze_test2_2018_08_17_17_23.tar.gz
+2018-08-17 17:24 [32m delete [0m /home/tanxiaoze/backup/home_tanxiaoze_test1_2018_08_17_17_23.tar.gz -4.0K	/home/tanxiaoze/backup/home_tanxiaoze_test1_2018_08_17_17_23.tar.gz
+2018-08-17 17:25 backup started!
+/home/tanxiaoze/test1 started
+2018-08-17 17:25 [32m backup [0m /home/tanxiaoze/test1 home_tanxiaoze_test1_2018_08_17_17_25.tar.gz +4.0K	/home/tanxiaoze/backup/home_tanxiaoze_test1_2018_08_17_17_25.tar.gz
+/home/tanxiaoze/test2 started
+2018-08-17 17:25 [32m backup [0m /home/tanxiaoze/test2 home_tanxiaoze_test2_2018_08_17_17_25.tar.gz +4.0K	/home/tanxiaoze/backup/home_tanxiaoze_test2_2018_08_17_17_25.tar.gz
+2018-08-17 17:25 [32m delete [0m /home/tanxiaoze/backup/home_tanxiaoze_test2_2018_08_17_17_24.tar.gz -4.0K	/home/tanxiaoze/backup/home_tanxiaoze_test2_2018_08_17_17_24.tar.gz
+2018-08-17 17:25 [32m delete [0m /home/tanxiaoze/backup/home_tanxiaoze_test1_2018_08_17_17_24.tar.gz -4.0K	/home/tanxiaoze/backup/home_tanxiaoze_test1_2018_08_17_17_24.tar.gz
+2018-08-17 17:26 backup started!
+/home/tanxiaoze/test1 started
+2018-08-17 17:26 [32m backup [0m /home/tanxiaoze/test1 home_tanxiaoze_test1_2018_08_17_17_26.tar.gz +4.0K	/home/tanxiaoze/backup/home_tanxiaoze_test1_2018_08_17_17_26.tar.gz
+/home/tanxiaoze/test2 started
+2018-08-17 17:26 [32m backup [0m /home/tanxiaoze/test2 home_tanxiaoze_test2_2018_08_17_17_26.tar.gz +4.0K	/home/tanxiaoze/backup/home_tanxiaoze_test2_2018_08_17_17_26.tar.gz
+2018-08-17 17:26 [32m delete [0m /home/tanxiaoze/backup/home_tanxiaoze_test2_2018_08_17_17_25.tar.gz -4.0K	/home/tanxiaoze/backup/home_tanxiaoze_test2_2018_08_17_17_25.tar.gz
+2018-08-17 17:26 [32m delete [0m /home/tanxiaoze/backup/home_tanxiaoze_test1_2018_08_17_17_25.tar.gz -4.0K	/home/tanxiaoze/backup/home_tanxiaoze_test1_2018_08_17_17_25.tar.gz
+2018-08-17 17:27 backup started!
+/home/tanxiaoze/test1 started
+2018-08-17 17:27 [32m backup [0m /home/tanxiaoze/test1 home_tanxiaoze_test1_2018_08_17_17_27.tar.gz +4.0K	/home/tanxiaoze/backup/home_tanxiaoze_test1_2018_08_17_17_27.tar.gz
+/home/tanxiaoze/test2 started
+2018-08-17 17:27 [32m backup [0m /home/tanxiaoze/test2 home_tanxiaoze_test2_2018_08_17_17_27.tar.gz +4.0K	/home/tanxiaoze/backup/home_tanxiaoze_test2_2018_08_17_17_27.tar.gz
+2018-08-17 17:27 [32m delete [0m /home/tanxiaoze/backup/home_tanxiaoze_test2_2018_08_17_17_26.tar.gz -4.0K	/home/tanxiaoze/backup/home_tanxiaoze_test2_2018_08_17_17_26.tar.gz
+2018-08-17 17:27 [32m delete [0m /home/tanxiaoze/backup/home_tanxiaoze_test1_2018_08_17_17_26.tar.gz -4.0K	/home/tanxiaoze/backup/home_tanxiaoze_test1_2018_08_17_17_26.tar.gz
+2018-08-17 17:28 backup started!
+/home/tanxiaoze/test1 started
+2018-08-17 17:28 [32m backup [0m /home/tanxiaoze/test1 home_tanxiaoze_test1_2018_08_17_17_28.tar.gz +4.0K	/home/tanxiaoze/backup/home_tanxiaoze_test1_2018_08_17_17_28.tar.gz
+/home/tanxiaoze/test2 started
+2018-08-17 17:28 [32m backup [0m /home/tanxiaoze/test2 home_tanxiaoze_test2_2018_08_17_17_28.tar.gz +4.0K	/home/tanxiaoze/backup/home_tanxiaoze_test2_2018_08_17_17_28.tar.gz
+2018-08-17 17:28 [32m delete [0m /home/tanxiaoze/backup/home_tanxiaoze_test1_2018_08_17_17_27.tar.gz -4.0K	/home/tanxiaoze/backup/home_tanxiaoze_test1_2018_08_17_17_27.tar.gz
+2018-08-17 17:28 [32m delete [0m /home/tanxiaoze/backup/home_tanxiaoze_test2_2018_08_17_17_27.tar.gz -4.0K	/home/tanxiaoze/backup/home_tanxiaoze_test2_2018_08_17_17_27.tar.gz
+2018-08-17 17:29 backup started!
+/home/tanxiaoze/test1 started
+2018-08-17 17:29 [32m backup [0m /home/tanxiaoze/test1 home_tanxiaoze_test1_2018_08_17_17_29.tar.gz +4.0K	/home/tanxiaoze/backup/home_tanxiaoze_test1_2018_08_17_17_29.tar.gz
+/home/tanxiaoze/test2 started
+2018-08-17 17:29 [32m backup [0m /home/tanxiaoze/test2 home_tanxiaoze_test2_2018_08_17_17_29.tar.gz +4.0K	/home/tanxiaoze/backup/home_tanxiaoze_test2_2018_08_17_17_29.tar.gz
+2018-08-17 17:30 backup started!
+/home/tanxiaoze/test1 started
+2018-08-17 17:30 [32m backup [0m /home/tanxiaoze/test1 home_tanxiaoze_test1_2018_08_17_17_30.tar.gz +4.0K	/home/tanxiaoze/backup/home_tanxiaoze_test1_2018_08_17_17_30.tar.gz
+/home/tanxiaoze/test2 started
+2018-08-17 17:30 [32m backup [0m /home/tanxiaoze/test2 home_tanxiaoze_test2_2018_08_17_17_30.tar.gz +4.0K	/home/tanxiaoze/backup/home_tanxiaoze_test2_2018_08_17_17_30.tar.gz
+2018-08-17 17:30 [32m delete [0m /home/tanxiaoze/backup/home_tanxiaoze_test1_2018_08_17_17_29.tar.gz -4.0K	/home/tanxiaoze/backup/home_tanxiaoze_test1_2018_08_17_17_29.tar.gz
+2018-08-17 17:30 [32m delete [0m /home/tanxiaoze/backup/home_tanxiaoze_test1_2018_08_17_17_28.tar.gz -4.0K	/home/tanxiaoze/backup/home_tanxiaoze_test1_2018_08_17_17_28.tar.gz
+2018-08-17 17:30 [32m delete [0m /home/tanxiaoze/backup/home_tanxiaoze_test2_2018_08_17_17_29.tar.gz -4.0K	/home/tanxiaoze/backup/home_tanxiaoze_test2_2018_08_17_17_29.tar.gz
+2018-08-17 17:30 [32m delete [0m /home/tanxiaoze/backup/home_tanxiaoze_test2_2018_08_17_17_28.tar.gz -4.0K	/home/tanxiaoze/backup/home_tanxiaoze_test2_2018_08_17_17_28.tar.gz
+2018-08-17 17:31 backup started!
+/home/tanxiaoze/test1 started
+2018-08-17 17:31 [32m backup [0m /home/tanxiaoze/test1 home_tanxiaoze_test1_2018_08_17_17_31.tar.gz +4.0K	/home/tanxiaoze/backup/home_tanxiaoze_test1_2018_08_17_17_31.tar.gz
+/home/tanxiaoze/test2 started
+2018-08-17 17:31 [32m backup [0m /home/tanxiaoze/test2 home_tanxiaoze_test2_2018_08_17_17_31.tar.gz +4.0K	/home/tanxiaoze/backup/home_tanxiaoze_test2_2018_08_17_17_31.tar.gz
+2018-08-17 17:31 [32m delete [0m /home/tanxiaoze/backup/home_tanxiaoze_test1_2018_08_17_17_30.tar.gz -4.0K	/home/tanxiaoze/backup/home_tanxiaoze_test1_2018_08_17_17_30.tar.gz
+2018-08-17 17:31 [32m delete [0m /home/tanxiaoze/backup/home_tanxiaoze_test2_2018_08_17_17_30.tar.gz -4.0K	/home/tanxiaoze/backup/home_tanxiaoze_test2_2018_08_17_17_30.tar.gz
+2018-08-17 17:32 backup started!
+/home/tanxiaoze/test1 started
+2018-08-17 17:32 [32m backup [0m /home/tanxiaoze/test1 home_tanxiaoze_test1_2018_08_17_17_32.tar.gz +4.0K	/home/tanxiaoze/backup/home_tanxiaoze_test1_2018_08_17_17_32.tar.gz
+/home/tanxiaoze/test2 started
+2018-08-17 17:32 [32m backup [0m /home/tanxiaoze/test2 home_tanxiaoze_test2_2018_08_17_17_32.tar.gz +4.0K	/home/tanxiaoze/backup/home_tanxiaoze_test2_2018_08_17_17_32.tar.gz
+2018-08-17 17:32 [32m delete [0m /home/tanxiaoze/backup/home_tanxiaoze_test1_2018_08_17_17_31.tar.gz -4.0K	/home/tanxiaoze/backup/home_tanxiaoze_test1_2018_08_17_17_31.tar.gz
+2018-08-17 17:32 [32m delete [0m /home/tanxiaoze/backup/home_tanxiaoze_test2_2018_08_17_17_31.tar.gz -4.0K	/home/tanxiaoze/backup/home_tanxiaoze_test2_2018_08_17_17_31.tar.gz
+2018-08-17 17:33 backup started!
+/home/tanxiaoze/test1 started
+2018-08-17 17:33 [32m backup [0m /home/tanxiaoze/test1 home_tanxiaoze_test1_2018_08_17_17_33.tar.gz +4.0K	/home/tanxiaoze/backup/home_tanxiaoze_test1_2018_08_17_17_33.tar.gz
+/home/tanxiaoze/test2 started
+2018-08-17 17:33 [32m backup [0m /home/tanxiaoze/test2 home_tanxiaoze_test2_2018_08_17_17_33.tar.gz +4.0K	/home/tanxiaoze/backup/home_tanxiaoze_test2_2018_08_17_17_33.tar.gz
+2018-08-17 17:33 [32m delete [0m /home/tanxiaoze/backup/home_tanxiaoze_test2_2018_08_17_17_32.tar.gz -4.0K	/home/tanxiaoze/backup/home_tanxiaoze_test2_2018_08_17_17_32.tar.gz
+2018-08-17 17:33 [32m delete [0m /home/tanxiaoze/backup/home_tanxiaoze_test1_2018_08_17_17_32.tar.gz -4.0K	/home/tanxiaoze/backup/home_tanxiaoze_test1_2018_08_17_17_32.tar.gz
