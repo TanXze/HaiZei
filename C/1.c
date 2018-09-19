@@ -5,8 +5,8 @@
 	> Created Time: 2018年05月13日 星期日 16时47分38秒
  ************************************************************************/
 
-#include<stdio.h>
-#include<inttypes.h>
+#include <stdio.h>
+#include <inttypes.h>
 
 struct Node {
     char a;
@@ -17,7 +17,7 @@ struct Node {
 
 #define offset(T, name) (int)(int64_t)(&((T *)(NULL))-> name)
 
-int main(){
+int main() {
     printf("%d\n", offset(struct Node, a));
     printf("%d\n", offset(struct Node, b));
     printf("%d\n", offset(struct Node, c));
