@@ -26,7 +26,7 @@ template<typename T> inline void sdf(T &x) {
     x *= y;
 }
 
-int main(){
+int main() {
     int n, a;
     sdf(n);
     for (int i = 0; i < n; i++) {

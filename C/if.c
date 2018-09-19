@@ -7,7 +7,7 @@
 
 #include <stdio.h>
 
-int main(){
+int main() {
     int n;
     while (scanf("%d", &n) != EOF) { 
         if (n < 0) {

@@ -5,9 +5,11 @@
 	> Created Time: 2018年05月16日 星期三 12时51分29秒
  ************************************************************************/
 
-#include<iostream>
+#include <iostream>
+
 using namespace std;
-int main(int a, char *b[]){
+
+int main(int a, char *b[]) {
     cout<<a<<endl;
     cout<<*b<<endl;
     return 0;

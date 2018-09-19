@@ -7,7 +7,7 @@
 
 #include <stdio.h>
 
-int main(){
+int main() {
     printf("\33[32m\33[1m Hello World\33[0m*\n");
     printf("\33[34m Hello World\33[0m/\n");
     return 0;

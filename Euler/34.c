@@ -5,13 +5,13 @@
 	> Created Time: 2018年08月05日 星期日 13时08分17秒
  ************************************************************************/
 
-#include<stdio.h>
+#include <stdio.h>
 
-int check(int i){
+int check(int i) {
     int sum = 0, x = i; 
-    while(i){
+    while (i) {
         int k = 1;
-        for(int j = 1; j <= i % 10; j++){
+        for (int j = 1; j <= i % 10; j++) {
             k *= j;
         }
         sum += k;
@@ -20,10 +20,10 @@ int check(int i){
     return sum == x;
 }
 
-int main(){
+int main() {
     int sum = 0;
-    for(int i = 3; i < 2540160; i++){
-        if(check(i)){
+    for (int i = 3; i < 2540160; i++) {
+        if (check(i)) {
             sum += i;
         }
     }

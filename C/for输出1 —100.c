@@ -5,10 +5,11 @@
 	> Created Time: 2018年04月04日 星期三 18时49分30秒
  ************************************************************************/
 
-#include<stdio.h>
-int main(){
-    int n=1;
-    for(n=1;n<=100;n++){
+#include <stdio.h>
+
+int main() {
+    int n = 1;
+    for (n=1;n<=100;n++) {
         printf("%d ",n);
     }
     return 0;

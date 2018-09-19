@@ -13,7 +13,7 @@ int main() {
     do {
         n /= 10;
         m++;
-    } while(n);
+    } while (n);
     printf("%d", m);
     return 0;
 }

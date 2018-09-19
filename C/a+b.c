@@ -7,11 +7,11 @@
 
 #include <stdio.h>
 
-int main(){
+int main() {
     int a, b;
-    while(scanf("%d%d", &a, &b) != EOF){
+    while (scanf("%d%d", &a, &b) != EOF) {
         int c, d;
-        while(b != 0){
+        while (b != 0) {
             c = a ^ b;
             d = (a & b) << 1;
             a = c;

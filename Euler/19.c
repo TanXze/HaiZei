@@ -5,10 +5,10 @@
 	> Created Time: 2018年08月07日 星期二 09时55分41秒
  ************************************************************************/
 
-#include<stdio.h>
+#include <stdio.h>
 
-int WhichDay(int y, int m, int d){
-    if(m == 1 || m == 2){
+int WhichDay(int y, int m, int d) {
+    if (m == 1 || m == 2) {
         --y;
         m += 12;
     }
@@ -17,12 +17,12 @@ int WhichDay(int y, int m, int d){
     return w;
 }
 
-int main(){
+int main() {
     int sunday = 0;
-    for(int y = 1901; y < 2001; y++){
-        for(int m = 1; m <= 12; m++){
-            if(WhichDay(y, m, 1) == 6){
-                                sunday++;
+    for (int y = 1901; y < 2001; y++) {
+        for (int m = 1; m <= 12; m++) {
+            if (WhichDay(y, m, 1) == 6) {
+                sunday++;
             }
         }
     }

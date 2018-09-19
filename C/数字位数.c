@@ -7,14 +7,14 @@
 
 #include <stdio.h>
 
-int main(){
+int main() {
     int a;
     char str[100];
     FILE *fout = fopen("/dev/null", "w");
-    scanf("%d",&a);
+    scanf("%d", &a);
     printf(" has %d dights\n", printf("%d", a));   //printf
     printf("%d\n", sprintf(str, "%d", a));    //sprintf
-    for(int i = 1, j = 0; i <= 20; i++) {
+    for (int i = 1, j = 0; i <= 20; i++) {
         j += sprintf(str + j, "%d", i);
     }
     printf("str = %s\n", str);

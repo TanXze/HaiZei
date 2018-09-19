@@ -1,15 +1,13 @@
 /*************************************************************************
-	> File Name: c2.c
+	> File Name: 12.c
 	> Author: Tanxiaoze
 	> Mail: 2406577693@qq.com
-	> Created Time: 2018年09月13日 星期四 19时13分11秒
+	> Created Time: 2018年09月19日 星期三 20时19分20秒
  ************************************************************************/
 
 #include <stdio.h>
 
-int main() {
-    char str[100];
-    scanf("%[^\n]s", str);
-    printf("str = %s\n", str);
+int main(){
     return 0;
 }
+

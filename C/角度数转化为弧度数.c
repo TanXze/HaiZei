@@ -5,13 +5,15 @@
 	> Created Time: 2018年04月02日 星期一 17时32分54秒
  ************************************************************************/
 
-#include<stdio.h>
+#include <stdio.h>
+
 #define PI 3.14
-int main(){
+
+int main() {
     int a;
     float b;
-    scanf("%d",&a);
-    b=a/180.0*PI;
-    printf("%f",b);
+    scanf("%d", &a);
+    b=a / 180.0 * PI;
+    printf("%f", b);
     return 0;
 }

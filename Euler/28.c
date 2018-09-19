@@ -5,11 +5,11 @@
 	> Created Time: 2018年08月05日 星期日 12时01分50秒
  ************************************************************************/
 
-#include<stdio.h>
+#include <stdio.h>
 
-int main(){
+int main() {
     int sum = 1, x = 1;
-    while(x <= 1001){
+    while (x <= 1001) {
         sum += 4 * x * x - 6 * x + 6;
         x += 2;
     }

@@ -7,7 +7,7 @@
 
 #include <stdio.h>
 
-int main(){
+int main() {
     int n = 16;
     int m = n << 2;
     int i = n >> 2;
