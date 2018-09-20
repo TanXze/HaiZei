@@ -21,6 +21,6 @@ int main() {
     int n, s;
     scanf("%d", &n);
     f(n, &s);
-    printf("%d != %d\n", n, s);
+    printf("%d! = %d\n", n, s);
     return 0;
 }
