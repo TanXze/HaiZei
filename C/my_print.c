@@ -23,7 +23,7 @@ int my_printf(const char *frm, ...) {
                 i++;
                 switch (frm[i]) {
                     case 'd' : {
-                        int64_t temp = va_arg(arg, int64_t); //, x = 0;
+                        int temp = va_arg(arg, int64_t); //, x = 0;
                         /*while (temp) {
                             x = x * 10 + temp % 10;
                             temp /= 10;
