@@ -10,6 +10,9 @@
 #include <stdarg.h>
 #include <inttypes.h>
 
+void printNum(int temp);
+void my_printD(int temp);
+
 int my_printf(const char *frm, ...) {
     int cnt = 0;
     va_list arg;
@@ -20,15 +23,16 @@ int my_printf(const char *frm, ...) {
                 i++;
                 switch (frm[i]) {
                     case 'd' : {
-                        int temp va_arg(arg, int), x = 0;
-                        while (temp) {
+                        int temp = va_arg(arg, int); //, x = 0;
+                        /*while (temp) {
                             x = x * 10 + temp % 10;
                             temp /= 10;
                         }
                         while (x) {
                             putchar(x % 10 + '0');
                             x /= 10;
-                        }
+                        }*/
+                        my_printD(temp);
                     } break;
                     default : 
                         fprintf(stderr, "error : unknow %%%c\n", frm[i]);
@@ -40,6 +44,24 @@ int my_printf(const char *frm, ...) {
         }
     }
     return cnt;
+}
+
+void printNum (int temp) {
+    if (temp == 0) return;
+    printNum(temp / 10);
+    putchar(temp % 10 + '0');
+}
+
+void my_printD (int temp) {
+    if (temp < 0) {
+        putchar('-');
+        temp = -temp;
+    }
+    if (temp == 0) {
+        putchar('0');
+    } else {
+        printNum(temp);
+    }
 }
 
 int main(){
