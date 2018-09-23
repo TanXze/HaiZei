@@ -10,8 +10,8 @@
 #include <stdarg.h>
 #include <inttypes.h>
 
-void printNum(int temp);
-void my_printD(int temp);
+void printNum(int64_t temp);
+void my_printD(int64_t temp);
 
 int my_printf(const char *frm, ...) {
     int cnt = 0;
@@ -23,7 +23,7 @@ int my_printf(const char *frm, ...) {
                 i++;
                 switch (frm[i]) {
                     case 'd' : {
-                        int temp = va_arg(arg, int); //, x = 0;
+                        int64_t temp = va_arg(arg, int64_t); //, x = 0;
                         /*while (temp) {
                             x = x * 10 + temp % 10;
                             temp /= 10;
@@ -46,13 +46,13 @@ int my_printf(const char *frm, ...) {
     return cnt;
 }
 
-void printNum (int temp) {
+void printNum (int64_t temp) {
     if (temp == 0) return;
     printNum(temp / 10);
     putchar(temp % 10 + '0');
 }
 
-void my_printD (int temp) {
+void my_printD (int64_t temp) {
     if (temp < 0) {
         putchar('-');
         temp = -temp;
