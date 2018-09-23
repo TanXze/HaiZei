@@ -10,29 +10,46 @@
 #include <stdarg.h>
 #include <inttypes.h>
 
-void printNum(int64_t temp);
-void my_printD(int64_t temp);
+int print_int(int x, int flag){
+    if (x == 0) {
+        flag && putchar('0');
+        return !!(flag);
+    }
+    int temp = x, ret = 0;
+    x = 0;
+    if (temp < 0) {
+        temp = -temp, printf('-');
+    }
+    while (temp) {
+        x = x * 10 + temp % 10;
+        temp /= 10;
+    }
+    while (x) {
+        putchar(x % 10 + '0');
+        x /= 10;
+        ret++;
+    }
+    return ret;
+}
 
 int my_printf(const char *frm, ...) {
     int cnt = 0;
     va_list arg;
     va_start(arg, frm);
-    for (int i = 0, cnt = 0; frm[i]; i++, cnt++) {
+    for (int i = 0; frm[i]; i++) {
         switch (frm[i]) {
             case '%' : {
                 i++;
                 switch (frm[i]) {
                     case 'd' : {
-                        int temp = va_arg(arg, int64_t); //, x = 0;
-                        /*while (temp) {
-                            x = x * 10 + temp % 10;
-                            temp /= 10;
+                        int temp = va_arg(arg, int);
+                        int p1 = temp / 10, p2 = temp % 10;
+                        if (temp < 0) {
+                            p1 = -p1, p2 = -p2;
+                            putchar('-'); cnt++;
                         }
-                        while (x) {
-                            putchar(x % 10 + '0');
-                            x /= 10;
-                        }*/
-                        my_printD(temp);
+                        cnt += print_int(p1, 0);
+                        cnt += print_int(p2, 1);
                     } break;
                     default : 
                         fprintf(stderr, "error : unknow %%%c\n", frm[i]);
@@ -41,33 +58,17 @@ int my_printf(const char *frm, ...) {
             } break;
             default : 
                 putchar(frm[i]);
+                cnt++; 
         }
     }
     return cnt;
-}
-
-void printNum (int64_t temp) {
-    if (temp == 0) return;
-    printNum(temp / 10);
-    putchar(temp % 10 + '0');
-}
-
-void my_printD (int64_t temp) {
-    if (temp < 0) {
-        putchar('-');
-        temp = -temp;
-    }
-    if (temp == 0) {
-        putchar('0');
-    } else {
-        printNum(temp);
-    }
 }
 
 int main(){
     my_printf("Hello World\n");
     my_printf("n = %d\n", 123);
     my_printf("n = %d\n", 12000);
+    my_printf("n = %d\n", 0);
     my_printf("n = %d\n", -567);
     my_printf("n = %d\n", INT32_MIN);
     my_printf("n = %d\n", INT32_MAX);
