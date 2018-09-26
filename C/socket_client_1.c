@@ -1,7 +1,7 @@
 /*************************************************************************
-	> File Name: socket_client.c
-	> Author: tanxiaoze
-	> Mail: 2406577693@qq.com
+	> File Name: socket_1.c
+	> Author: caohaiyan
+	> Mail: 877022406@qq.com
 	> Created Time: 2018年09月23日 星期日 16时43分25秒
  ************************************************************************/
 
@@ -24,7 +24,7 @@
 #include <time.h>
 #include <stdarg.h>
 
-#define MAX_SIZE 1024
+#define MAX_SIZE 2000
 #define FILE_NAME_MAX_SIZE 512
 
 int main(int argc, char *argv[]) {
@@ -33,7 +33,6 @@ int main(int argc, char *argv[]) {
     struct sockaddr_in server_addr;
     int port = atoi(argv[2]);
     char *host = argv[1];
-
     if ((sock_client = socket(AF_INET, SOCK_STREAM, 0)) < 0) {
         perror("Socket");
         return -1;
@@ -49,39 +48,37 @@ int main(int argc, char *argv[]) {
     }
     printf("Connect success!\n");
 
-    /*while (1) {
-        scanf("%[^\n]s\n", buffer);
+/*    while (1) {
+        scanf("%[^\n]s", buffer);
         getchar();
         send(sock_client, buffer, strlen(buffer), 0);
-        bzero(buffer, MAX_SIZE);
     }*/
+    
+    char file_name[FILE_NAME_MAX_SIZE + 1];
+    bzero(file_name, FILE_NAME_MAX_SIZE + 1);
+    printf("Please input file name on server : \t");
+    scanf("%s", file_name);
 
-    while (1) {
-        char file_name[FILE_NAME_MAX_SIZE + 1];
-        bzero(file_name, FILE_NAME_MAX_SIZE + 1);
-        printf("Please input file name on server : \t");
-        strncpy(file_name, buffer, strlen(buffer) > FILE_NAME_MAX_SIZE ? FILE_NAME_MAX_SIZE : strlen(buffer));
-        scanf("%s", file_name);
-
-        FILE *fp = fopen(file_name, "r");
-        if (NULL == fp) {
-            printf("File: %s Not Found!\n", file_name);
-        } else {
-            bzero(buffer, MAX_SIZE);
-            while (!feof(fp)) {
-                int num_fread = fread(buffer, sizeof(char), 1, fp);
-                if (num_fread < 0) {
-                    perror("Fread");
-                    return -1;
-                }
-                send(sock_client, buffer, num_fread, 0);
-                bzero(buffer, MAX_SIZE);
-            }
-
-            fclose(fp);
-            printf("Receive file:\t%s successful!\n", file_name);
-        }
+    if (send(sock_client, buffer, MAX_SIZE, 0) < 0) {
+        perror("Send");
+        return -1;
     }
+
+    FILE *fd = fopen(file_name, "r");
+    
+    bzero(buffer, MAX_SIZE);
+    int num_fread = fread(buffer, 1, MAX_SIZE, fd);
+    while (1) {
+        if (num_fread < 0) {
+            perror("Fread");
+            return -1;
+        }
+        send(sock_client, buffer, strlen(buffer), 0);
+        bzero(buffer, MAX_SIZE);
+    }
+    printf("Receive file:\t%s from server ip successful!\n", file_name);
     close(sock_client);
     return 0;
 }
+
+//谭小泽

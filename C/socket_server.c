@@ -26,6 +26,7 @@
 #include <stdarg.h>
 
 #define MAX_SIZE 1024
+#define FILE_NAME_MAX_SIZE 512
 
 int main(int argc, char *argv[]) {
     int sock_server;
@@ -51,23 +52,38 @@ int main(int argc, char *argv[]) {
         perror("Listen");
         return -1;
     }
-    
-    int size = sizeof(client_addr);
-    int sock_accept = accept(sock_server, (struct sockaddr *) &client_addr, &size);
-    if (sock_accept < 0) {
-        perror("Accept");
-        return -1;
-    }
-    printf("Accept success!\n");
 
+    int sock_listen = sock_server, pid;
     while (1) {
-        if ((recv(sock_accept, buffer, MAX_SIZE, 0)) < 0) {
-            perror("Recv");
-            return -1;
+        socklen_t size = sizeof(client_addr);
+        sock_server = accept(sock_listen, (struct sockaddr *) &client_addr, &size);
+        if (sock_server < 0) {
+            perror("Accept");
+            break;
         }
-        printf("%s\n", buffer);
-        memset(buffer, 0, sizeof(buffer));
+
+        struct sockaddr_in peer;
+        socklen_t len = sizeof(struct sockaddr_in);
+        bzero(&peer, sizeof(struct sockaddr_in));
+        getpeername(sock_server, (struct sockaddr *) &peer, &len);
+        char buff_peer[64] = {'\0'};
+        inet_ntop(AF_INET, (void *)&peer.sin_addr, buff_peer, 63);
+        printf("%s已连接:\n", buff_peer);
+
+        if ((pid = fork()) < 0) {
+            printf("Fork");
+        }
+        if (pid == 0) {
+            while (recv(sock_server, buffer, MAX_SIZE, 0) > 0) {
+                printf("%s", buffer);
+                fflush(stdout);
+                bzero(buffer, sizeof(buffer));
+            }
+            printf("\n");
+            close(sock_server);
+            exit(0);
+        }
+        close (sock_server);
     }
-    close(sock_server);
     return 0;
 }
