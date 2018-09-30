@@ -63,8 +63,8 @@ int main(int argc, char *argv[]) {
         }
 
         struct sockaddr_in peer;
-        socklen_t len = sizeof(struct sockaddr_in);
-        bzero(&peer, sizeof(struct sockaddr_in));
+        socklen_t len = sizeof(peer);
+        bzero(&peer, sizeof(peer));
         getpeername(sock_server, (struct sockaddr *) &peer, &len);
         char buff_peer[64] = {'\0'};
         inet_ntop(AF_INET, (void *)&peer.sin_addr, buff_peer, 63);
@@ -72,14 +72,76 @@ int main(int argc, char *argv[]) {
 
         if ((pid = fork()) < 0) {
             printf("Fork");
+            return -1;
         }
         if (pid == 0) {
+            close(sock_listen);
             while (recv(sock_server, buffer, MAX_SIZE, 0) > 0) {
-                printf("%s", buffer);
-                fflush(stdout);
+                char buf_send[20], buf_recv[20];
+                if (strcmp(buffer, "100") == 0) {
+                    bzero(buffer, sizeof(buffer));
+                    int sock_short = socket(AF_INET, SOCK_STREAM, 0);
+                    strcpy(buf_send, "1");
+                    send(sock_short, buf_send, sizeof(buf_send), 0);
+                    bzero(buf_send, sizeof(buf_send));
+                    int length = recv(sock_short, buffer, sizeof(buffer), 0);
+                    printf("%s", buffer);
+                    FILE *fcpu = fopen("CPU.log", "w");
+                    fwrite(buffer, sizeof(char), length, fcpu);
+                    close(sock_short);
+                }
+
+                /*if (strcmp(buffer, "101") == 0) {
+                    bzero(buffer, sizeof(buffer));
+                    int sock_short = socket(AF_INET, SOCK_STREAM, 0);
+                    strcpy(buf_send, "2");
+                    send(sock_short, buf_send, sizeof(buf_send), 0);
+                    bzero(buf_send, sizeof(buf_send));
+                    printf("%s", buffer);
+                    FILE *fdisk = fopen("DISK.log", "w");
+                    fwrite(buffer, sizeof(char), sizeof(buffer), fdisk);
+                    close(sock_short);
+                }
+
+                if (strcmp(buffer, "102") == 0) {
+                    bzero(buffer, sizeof(buffer));
+                    int sock_short = socket(AF_INET, SOCK_STREAM, 0);
+                    strcpy(buf_send, "3");
+                    send(sock_short, buf_send, sizeof(buf_send), 0);
+                    bzero(buf_send, sizeof(buf_send));
+                    printf("%s", buffer);
+                    FILE *fmem = fopen("MEM.log", "w");
+                    fwrite(buffer, sizeof(char), sizeof(buffer), fmem);
+                    close(sock_short);
+                }*/
+
+                /*bzero(buffer, sizeof(buffer));
+                char file_name[FILE_NAME_MAX_SIZE + 1];
+                char file_name_save[FILE_NAME_MAX_SIZE + 1];
+                bzero(file_name, sizeof(file_name));
+                printf("Please Input File Name On Client:\t");
+                scanf("%s", file_name);
+
+                printf("Please Input File Name To Save:\t");
+                scanf("%s", file_name_save);
+
+                FILE *fp = fopen(file_name_save, "w");
+                if (NULL == fp) {
+                    printf("File:\t%s Can Not Open To Write!\n", file_name_save);
+                    return -1;
+                }
+
                 bzero(buffer, sizeof(buffer));
+                int length = 0;
+                while (length = recv(sock_server, buffer, MAX_SIZE, 0)) {
+                    if (fwrite(buffer, sizeof(char), length, fp) < length) {
+                        printf("Fail:\t%s Write Failed!\n", file_name);
+                        break;
+                    }
+                    bzero(buffer, sizeof(buffer));
+                }
+                printf("Receive File:\t%s From Client IP Successfully!\n", file_name);*/
             }
-            printf("\n");
             close(sock_server);
             exit(0);
         }

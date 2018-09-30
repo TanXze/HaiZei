@@ -1,0 +1,17 @@
+3893 0 3893 0% /dev
+41018 14611 24301 38% /
+43 43 0 100% /snap/gtk-common-themes/701
+35 35 0 100% /snap/gtk-common-themes/319
+88 88 0 100% /snap/core/5328
+13 13 0 100% /snap/gnome-characters/124
+3 3 0 100% /snap/gnome-calculator/199
+87 87 0 100% /snap/core/5145
+15 15 0 100% /snap/gnome-logs/40
+141 141 0 100% /snap/gnome-3-26-1604/70
+3 3 0 100% /snap/gnome-calculator/222
+4 4 0 100% /snap/gnome-system-monitor/57
+13 13 0 100% /snap/gnome-characters/117
+3 3 0 100% /snap/gnome-calculator/238
+4 4 0 100% /snap/gnome-system-monitor/54
+15 15 0 100% /snap/gnome-logs/43
+496 38 459 8% /boot/efi
