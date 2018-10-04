@@ -1,19 +1,21 @@
 /*************************************************************************
-	> File Name: Date.c
+	> File Name: test.h
 	> Author: Tanxiaoze
 	> Mail: 2406577693@qq.com
-	> Created Time: 2018年10月04日 星期四 14时52分16秒
+	> Created Time: 2018年10月04日 星期四 17时52分57秒
  ************************************************************************/
+
+#ifndef _TEST_H
+#define _TEST_H
 
 #include <stdio.h>
 
-struct Date {
-    int x = 1, y = 2;
-};
-
-int main() {
-    struct Date a[2];
-    int *p = a;
-    printf("%d\n", a[1].x);
-    return 0;
+bool TEST(int test, char *func) {
+    
 }
+
+char RUN_ALL_TEST() {
+
+}
+
+#endif
