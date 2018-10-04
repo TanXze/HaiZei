@@ -28,8 +28,35 @@
 #define MAX_SIZE 1024
 #define FILE_NAME_MAX_SIZE 512
 
-int main(int argc, char *argv[]) {
+int socket_creat(int sockfd) {
     int sock_server;
+    char buffer[MAX_SIZE];
+    struct sockaddr_in server_addr, client_addr;
+    int port = atoi(argv[1]);
+
+    if ((sock_server = socket(AF_INET, SOCK_STREAM, 0)) < 0) {
+        perror("Socket");
+        return -1;
+    }
+
+    server_addr.sin_family = AF_INET;
+    server_addr.sin_port = htons(port);
+    server_addr.sin_addr.s_addr = htonl(INADDR_ANY);
+
+    if (bind(sock_server, (struct sockaddr *)&server_addr, sizeof(server_addr)) < 0) {
+        perror("Bind");
+        return -1;
+
+        if (listen(sock_server, 20) < 0) {
+            perror("Listen");
+            return -1;
+        }
+    }
+    return sock_server;
+}
+
+int main(int argc, char *argv[]) {
+    /*int sock_server;
     char buffer[MAX_SIZE];
     struct sockaddr_in server_addr, client_addr;
     int port = atoi(argv[1]);
@@ -51,7 +78,8 @@ int main(int argc, char *argv[]) {
     if (listen(sock_server, 20) < 0) {
         perror("Listen");
         return -1;
-    }
+    }*/
+    socket_creat(sock_server);
 
     int sock_listen = sock_server, pid;
     while (1) {
