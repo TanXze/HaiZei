@@ -9,7 +9,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-int main(int argc, char *argv, char *env[]) {
+int main(int argc, char *argv[], char *env[]) {
     int i = strlen(argv[0]);
     while (i > 0 && argv[0][i - 1] != '/') --i;
     if (strcmp(argv[0] + i, "haiziex")) {
