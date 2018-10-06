@@ -10,13 +10,30 @@
 
 #include <stdio.h>
 
+#define PASS "\033[32mPASS\033[0m"
+#define FAIL "\033[31mFAIL\033[0m"
 
+typedef int (*Prime)(int x);
+typedef bool EXPECT(Prime is_prime, int a);
 
-bool TEST(int test, char *func, ...) {
-    EXPECT(func, test);
+void TEST(char *test, char *func_name) {
+    printf("[%s, %s_func]\n", test, func_name);
+    int total = 0, expect_cnt = 0;
+    while (EXPECT(, a)) {
+        printf(" == %d %s\n", , a, EXPECT(, a));
+        total++;
+        if (EXPECT(, a) == 1) {
+            expect_cnt++;
+        }
+    }
+    if (total == expect_cnt) {
+        printf("[ %s ] total : %d, expect_cnt : %d\n", PASS, total, expect_cnt);
+    } else {
+        printf("[ %s ] total : %d, expect_cnt : %d\n", FAIL, total, expect_cnt);
+    }
 }
 
-char RUN_ALL_TEST() {
+void RUN_ALL_TEST() {
 
 }
 
