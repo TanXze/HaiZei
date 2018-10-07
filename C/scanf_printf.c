@@ -13,8 +13,6 @@ int main() {
     scanf("%d %d %d", &total, &fail, &n);
     pass = total - fail;
     pass_rate = (pass * 1.0) / (total * 1.0) * 100;
-    printf("%*d\n", n, pass);
-    printf("%*d\n", n, total);
-    printf("%5.2f%%\n", pass_rate);
+    printf("%*d\n%*d\n%5.2f%%\n", n, pass, n, total, pass_rate);
     return 0;
 }

@@ -1,58 +1,27 @@
 /*************************************************************************
-	> File Name: test.h
+	> File Name: test.c
 	> Author: Tanxiaoze
 	> Mail: 2406577693@qq.com
-	> Created Time: 2018年10月07日 星期日 09时28分13秒
+	> Created Time: 2018年10月07日 星期日 14时17分04秒
  ************************************************************************/
 
-#ifndef _TEST_H
-#define _TEST_H
-#include <stdlib.h>
+#include <stdio.h>
+#include "test.h"
 
-#define PASS "\033[32mPASS\033[0m"
-#define FAIL "\033[31mFAIL\033[0m"
+static FuncData *FuncData_head = NULL;
 
-struct TestFuncData {
-    int total, expand;
-};
-
-typedef void (*test_func_t)();
-typedef struct FuncData {
-    const char *a_str, *b_str;
-    test_func_t func;
-    struct FuncData *next;
-} FuncData;
-
-FuncData *FuncData_head = NULL;
-
-FuncData *getFuncData(
+void addFuncData(
     const char *a,
     const char *b,
-    test_func_t func,
-    FuncData *next
+    test_func_t func
 ) {
     FuncData *p = (FuncData *)malloc(sizeof(FuncData));
     p->a_str = a;
     p->b_str = b;
     p->func = func;
-    p->next = next;
-    return p;
+    p->next = FuncData_head;
+    FuncData_head = p;
 }
-
-#define TEST(a, b) \
-    void a##_haizeix_##b(); \
-    __attribute__((constructor)) \
-    void ADDFUNC_##a##_haizeix_##b() { \
-        FuncData_head = getFuncData(#a, #b, a##_haizeix_##b, FuncData_head); \
-    } \
-    void a##_haizeix_##b(struct TestFuncData *__data)
-
-#define EXPECT(a, b) ({ \
-        int temp; \
-        printf("%s == %s %s\n", #a, #b, (temp = (a == b)) ? "True" : "False"); \
-        __data->total += 1; \
-        __data->expand += temp; \
-})
 
 int RUN_ALL_TEST() {
     FuncData ret;
@@ -81,5 +50,3 @@ int RUN_ALL_TEST() {
     }
     return 0;
 }
-
-#endif
