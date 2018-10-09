@@ -1,5 +1,5 @@
 CC = gcc
-CFLAGS = -I./test/include -DDTEST_CASE -std=c11 -Wall -g
+CFLAGS = -I./test/include  -DDTEST_CASE -std=c11 -Wall -g
 OBJS = main.o is_prime.o add.o
 
 .PHONY: clean
