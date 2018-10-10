@@ -1,11 +1,11 @@
 CC = gcc
-CFLAGS = -DDTEST_CASE -std=c11 -Wall -g
-OBJS = main.o newton.o cut.o gcd.o test.o
+CFLAGS = -I./output/include/ -DDTEST_CASE -std=c11 -Wall -g
+OBJS = main.o newton.o cut.o gcd.o
 
 .PHONY: clean
 
 a.out : $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS)
+	$(CC) $(CFLAGS) $(OBJS) output/libs/libtest.a 
 
 main.o : main.c
 	$(CC) -c $(CFLAGS) main.c
@@ -18,9 +18,6 @@ cut.o : cut.c cut.h
 
 gcd.o : gcd.c gcd.h
 	$(CC) -c $(CFLAGS) gcd.c
-
-test.o : test.c test.h
-	$(CC) -c $(CFLAGS) test.c
 
 clean :
 	rm -rf *.o a.out

@@ -1,8 +1,8 @@
 /*************************************************************************
-	> File Name: my_print.c
+	> File Name: my_print_1.c
 	> Author: Tanxiaoze
 	> Mail: 2406577693@qq.com
-	> Created Time: 2018年10月09日 星期二 16时30分39秒
+	> Created Time: 2018年10月09日 星期二 17时19分36秒
  ************************************************************************/
 
 #include <stdio.h>
@@ -38,10 +38,10 @@ int my_print(const char *frm, ...) {
                     } break;
                     default : 
                     printf("error\n");
-                    break;
+                    return -1;
                 }
             } break;
-            default :
+            default : 
             putchar(frm[i]);
             cnt++;
         }
@@ -50,11 +50,11 @@ int my_print(const char *frm, ...) {
 }
 
 int main() {
-    my_print("n = %d\n", 0);
-    my_print("%d\n", my_print("n = %d\n", 120000));
-    my_print("%d\n", my_print("n = %d %d\n", -1230, -2300));
-    printf("%d\n", my_print("n = %d %d\n", -1230, -2300));
-    my_print("n = %d\n", INT32_MIN);
-    my_print("n = %d\n", INT32_MAX);
+    my_print("hello world\n");
+    my_print("%d\n", 0);
+    my_print("%d\n", 12000);
+    my_print("%d\n", -345);
+    my_print("%d\n", INT32_MIN);
+    my_print("%d\n", INT32_MAX);
     return 0;
 }
