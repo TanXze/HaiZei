@@ -16,7 +16,9 @@ function get_dirnum(){
                 get_dirnum $dir_or_file
             fi
         else
+            set -x
             (( filenum++ ))
+            set +x
         fi 
     done
 }

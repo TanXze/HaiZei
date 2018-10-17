@@ -30,5 +30,4 @@ for((i=1; i<=${prime[0]}; i++))
 do
     echo ${prime[$i]}
 done
-
 echo ${prime[0]}
