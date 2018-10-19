@@ -4,7 +4,6 @@ count=0
 END=$[$1+$2-1]
 
 for i in `seq $1 $END`; do
-    echo $i
     if [[ $[$i%4] -eq 0 && $[$i%100] -ne 0 ]]; then 
         ((count++))
     elif [[ $[$i%400] -eq 0 ]]; then
