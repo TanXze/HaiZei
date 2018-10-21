@@ -8,5 +8,14 @@
 #include <stdio.h>
 
 int recv_response(int socket) {
-
+    int buffer[10];
+    if (recv(socket, buffer, sizeof(char), 0) < 0) {
+        perror("recv error");
+        return -1;
+    } else if (recv(socket, buffer, sizeof(char), 0) == 0) {
+        perror("connect off");
+        return -1;
+    } else {
+        return buffer;
+    }
 }
