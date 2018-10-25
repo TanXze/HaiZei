@@ -58,11 +58,11 @@ int main() {
     srand(time(0));
     scanf("%[^\n]s", str);
     int x;
-    /*scanf("%d", &x);
+    scanf("%d", &x);
     for (int i = 0; i < x; i++) {
         char str[i][MAX] = {0};
         scanf("%[^\n]s", str[i]);
-    }*/
+    }
     for (int i = 0; i < 10; i++) {
         
         printf("%s = %d\n", str, calc(str, 0, strlen(str)));
