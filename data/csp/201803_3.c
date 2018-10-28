@@ -45,6 +45,11 @@ Vector *getVector(char *str) {
     str++;
     char *now = str;
     while (now[0]) {
+        while (now[0] == '0') {
+            for (int i = 0; now[i]; i++) {
+                now[i] = now[i + 1];
+            }
+        }
         while (str[0] && str[0] != '/') str++;
         if (str[0] == '/') {
             str[0] = 0;
@@ -57,21 +62,6 @@ Vector *getVector(char *str) {
         now = str;
     }
     return v;
-}
-
-void output(Vector *v) {
-    if (strcmp(v->data[1], "articles") == 0) {
-        for (int i = 3; i < v->length; i += 2) {
-            printf(" %s", v->data[i]);
-        }
-        printf("\n");
-    } else if (strcmp(v->data[1], "static") == 0){
-        printf(" ");
-        for (int i = 3; i < v->length; i++) {
-            printf("%s", v->data);
-        }
-    }
-    return ;
 }
 
 int gettype(const char *str) {
@@ -107,6 +97,21 @@ int match(Vector *v1, Vector *v2) {
     return v1->length == v2->length;
 }
 
+void output(Vector *v1, Vector *v2) {
+    for (int i = 0; i < v2->length; i++) {
+        int type = gettype(v2->data[i]);
+        if (type == 1 || type == 2) {
+            printf(" %s", v1->data[i]);
+        } else if (type == 3){
+            printf(" ");
+            for (int j = i; j < v1->length; j++) {
+                printf("%s", v1->data[j]);
+            }
+        }
+    }
+    return ;
+}
+
 Vector *rules[105];
 
 int main() {
@@ -128,7 +133,8 @@ int main() {
             printf("404\n");
         } else {
             printf("%s", rules[j]->name);
-            output(now);
+            output(now, rules[j]);
+            printf("\n");
         }
     }
     return 0;
