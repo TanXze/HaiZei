@@ -28,63 +28,82 @@
 #define BUFFER_SIZE 1024
 #define FILE_NAME_MAX_SIZE 512
 
-int sock_server;
-char buffer[BUFFER_SIZE];
-struct sockaddr_in server_addr, client_addr;
+int main(int argc, char *argv[]) {
+    int a = 0;
+    int server_listen, sockfd, port, pid;
+    if (argc != 2) {
+        printf("Usage: ./tcp_server port\n");
+        exit(0);
+    }
 
-int socket_creat(int sockfd) {
+    port = atoi(argv[1]);
+
+    struct sockaddr_in sock_addr;
+    struct linger m_sLinger;
+    m_sLinger.l_onoff = 1;
+    m_sLinger.l_linger = 0;
+
     if ((sockfd = socket(AF_INET, SOCK_STREAM, 0)) < 0) {
-        perror("Socket");
+        perror("socket() error");
         return -1;
     }
 
-    if (bind(sockfd, (struct sockaddr *)&server_addr, sizeof(server_addr)) < 0) {
-        perror("Bind");
+    sock_addr.sin_family = AF_INET;
+    sock_addr.sin_port = htons(port);
+    sock_addr.sin_addr.s_addr = htonl(INADDR_ANY);
+
+    setsockopt(sockfd, SOL_SOCKET, SO_LINGER, (const char *) & m_sLinger, sizeof(struct linger));
+
+    if ((bind(sockfd, (struct sockaddr *) &sock_addr, sizeof(struct sockaddr))) < 0) {
+        close(sockfd);
+        perror("bind() error\n");
         return -1;
     }
 
     if (listen(sockfd, 20) < 0) {
-        perror("Listen");
+        close(sockfd);
+        perror("listen() error");
         return -1;
     }
-    return sockfd;
-}
 
-int main(int argc, char *argv[]) {
-    int port = atoi(argv[1]);
+    server_listen = sockfd;
 
-    server_addr.sin_family = AF_INET;
-    server_addr.sin_port = htons(port);
-    server_addr.sin_addr.s_addr = htonl(INADDR_ANY);
-    
-    socket_creat(sock_server);
-
-    int sock_listen = sock_server, pid;
-    while (1) {
-        socklen_t size = sizeof(client_addr);
-        sock_server = accept(sock_listen, (struct sockaddr *) &client_addr, &size);
-        if (sock_server < 0) {
-            perror("Accept");
+    while(1) {
+        struct sockaddr_in client_addr;
+        socklen_t len = sizeof(client_addr);
+        if ((sockfd = accept(server_listen, (struct sockaddr *) &client_addr, &len)) < 0) {
+            perror("accept");
             break;
         }
 
         struct sockaddr_in peer;
-        socklen_t len = sizeof(peer);
-        bzero(&peer, sizeof(peer));
-        getpeername(sock_server, (struct sockaddr *) &peer, &len);
+        socklen_t peer_len = sizeof(struct sockaddr_in);
+        bzero(&peer, sizeof(struct sockaddr_in));
+        getpeername(sockfd, (struct sockaddr *)&peer, &peer_len);
         char buff_peer[64] = {'\0'};
-        inet_ntop(AF_INET, (void *)&peer.sin_addr, buff_peer, 63);
+        inet_ntop(AF_INET, (void*)&peer.sin_addr, buff_peer, 63);
         printf("%s已连接:\n", buff_peer);
 
         if ((pid = fork()) < 0) {
-            printf("Fork");
-            return -1;
+            printf("Error forking child process");
         }
-        if (pid == 0) {
+        /*if (pid == 0) {
+            close(server_listen);
+            char buffer[BUFFER_SIZE];
+            while ((a = recv(sockfd, buffer, BUFFER_SIZE, 0)) > 0) {
+                printf("%s", buffer);
+                fflush(stdout);
+                memset(buffer, 0, sizeof(buffer));
+            }
+            printf("\n");
+            close(sockfd);
+            exit(0);
+        }*/
+        /*if (pid == 0) {
             close(sock_listen);
             while (recv(sock_server, buffer, BUFFER_SIZE, 0) > 0) {
                 printf("%s\n", buffer);
-                /*bzero(buffer, sizeof(buffer));
+                bzero(buffer, sizeof(buffer));
                 char file_name[FILE_NAME_MAX_SIZE + 1];
                 char file_name_save[FILE_NAME_MAX_SIZE + 1];
                 bzero(file_name, sizeof(file_name));
@@ -109,12 +128,13 @@ int main(int argc, char *argv[]) {
                     }
                     bzero(buffer, sizeof(buffer));
                 }
-                printf("Receive File:\t%s From Client IP Successfully!\n", file_name);*/
+                printf("Receive File:\t%s From Client IP Successfully!\n", file_name);
             }
             close(sock_server);
             exit(0);
-        }
-        close (sock_server);
+        }*/
+        close(sockfd);
     }
     return 0;
 }
+

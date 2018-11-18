@@ -33,8 +33,9 @@ int main(int argc, char *argv[]) {
     dest_addr.sin_family = AF_INET;
     dest_addr.sin_port = htons(port);
     dest_addr.sin_addr.s_addr = inet_addr(host);
-        if (connect(sock_client, (struct sockaddr * ) & dest_addr, sizeof(dest_addr))) {
-    	    perror("Connect");
-    	    return -1;            
-       }
+    if (connect(sock_client, (struct sockaddr * ) & dest_addr, sizeof(dest_addr))) {
+        perror("Connect");
+	    return -1;            
+    }
+    printf("connect success\n");
 }
