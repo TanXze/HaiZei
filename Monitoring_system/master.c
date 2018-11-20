@@ -6,7 +6,6 @@
 #include <fcntl.h>
 #include <netdb.h>		
 #include <netinet/in.h>
-#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <sys/wait.h>
@@ -59,11 +58,81 @@ void clear(Queue *q) {
 
 void output(Queue *q) {
     for (int i = 0; i < q->cnt; i++) {
-        //int ind = (q->head + i) % q->length;
-        printf("%s\n", q->data[i]);
+        int ind = (q->head + i) % q->length;
+        printf("%s\n", q->data[ind]);
     }
     return ;
 }
+
+/*#define INS 5
+
+int queue[INS + 1] = {0};
+
+typedef struct Node {
+    char *data;
+    struct Node *next;
+} Node, *LinkedList;
+
+LinkedList linkedlist[INS + 5];
+
+FILE *log1[INS + 1];
+
+Node insert(LinkedList head, Node *node, int index) {
+    Node *p, ret;
+    p = &ret;
+    //ret.data = 0;
+    ret.next = head;
+    while (p->next && index) {
+        p = p->next;
+        --index;
+    }
+    if (index == 0) {
+        node->next = p->next;
+        p->next = node;
+        //ret.data = 1;
+    }
+    return ret;
+}
+
+void output(LinkedList head, int num) {
+    Node *p = head;
+    char logfile[20];
+    sprintf(logfile, "%d.log", num);
+    log1[num] = fopen(logfile, "w");
+    while (p) {
+        printf("%s", p->data);
+        fprintf(log1[num], "%s", p->data);
+        if (p->next) {
+            printf(" ");
+            fprintf(log1[num], "%s", " ");
+        }
+        p = p->next;
+    }
+    printf("\n");
+}
+
+void clear(LinkedList head) {
+    Node *p, *q;
+    p = head;
+    while (p) {
+        q = p->next;
+        free(p);
+        p = q;
+    }
+    return ;
+}
+
+int find_min(int N, int *arr) {
+    int *min = arr;
+    int ans = 0;
+    for (int i = 0; i < N; i++) {
+        if (*(arr + i) < *min) {
+            min = arr + i;
+            ans = i;
+        }
+    }
+    return ans;
+}*/
 
 int main(int argc, char *argv[]) {
     int server_listen, sockfd, port, pid1, pid2;
@@ -91,15 +160,6 @@ int main(int argc, char *argv[]) {
         return -1;
     }
 
-    char queue_buff[100];
-    Queue *q = init(10);
-    for (int k = 50; k <= 60; k++) {
-        sprintf(queue_buff, "192.168.1.%d:%d", k, port);
-        printf("%s\n", queue_buff);
-        push(q, queue_buff);
-    }
-    output(q);
-
     server_listen = sockfd;
 
     while(1) {
@@ -116,7 +176,7 @@ int main(int argc, char *argv[]) {
         }
         if (pid1 == 0) {
             close(server_listen);
-            for (int i = 0; i < 5; i++) {
+            for (int i = 0; i < INS; i++) {
                 pid2 = fork();
                 if (pid2 == 0 || pid2 == -1) break;
 	            exit(0);
@@ -125,21 +185,33 @@ int main(int argc, char *argv[]) {
                 perror("fork() error\n");
             } else if (pid2 == 0) {
                 struct sockaddr_in peer;
+                char queue_buff[100];
                 socklen_t peer_len = sizeof(struct sockaddr_in);
                 bzero(&peer, sizeof(struct sockaddr_in));
                 getpeername(sockfd, (struct sockaddr *)&peer, &peer_len);
                 char buff_peer[64] = {'\0'};
                 inet_ntop(AF_INET, (void*)&peer.sin_addr, buff_peer, 63);
                 sprintf(queue_buff, "%s:%d", buff_peer, port);
-                pop(q);
-                push(q, queue_buff);
-                output(q);
+
+                /*int sub = find_min(INS, queue);
+                Node *p, ret;
+                p = (Node *)malloc(sizeof(Node));
+                p->data = queue_buff;
+                p->next = NULL;
+                ret = insert(linkedlist[sub], p, queue[sub]);
+                queue[sub]++;
+                linkedlist[sub] = ret.next;*/
             } 
             close(sockfd);
             exit(0);
         }
         close(sockfd);
     }
-    clear(q);
+    /*for (int i = 0; i < INS; i++) {
+        printf("%d ", queue[i]);
+        printf(" ... ");
+        output(linkedlist[i], i);
+    }
+    printf("\n");*/
     return 0;
 }
