@@ -1,21 +1,5 @@
-#include <arpa/inet.h>
-#include <ctype.h>
-#include <dirent.h>
-#include <errno.h>
-#include <fcntl.h>
-#include <netdb.h>
-#include <netinet/in.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <sys/wait.h>
-#include <sys/file.h>
-#include <signal.h>
-#include <sys/socket.h>
-#include <sys/types.h>
-#include <unistd.h>
-#include <time.h>
-#include <stdarg.h>
+
+#include "head.h"
 
 #define BUFFER_SIZE 1024
 #define FILE_NAME_MAX_SIZE 512
@@ -37,5 +21,17 @@ int main(int argc, char *argv[]) {
         perror("Connect");
 	    return -1;            
     }
-    printf("connect success\n");
+    printf("Connect Master Success!\n");
+
+    while (1) {
+        if ((bind(sockfd, (struct sockaddr *)&dest_addr, sizeof(struct sockaddr))) < 0) {
+            perror("bind() error!\n");
+            return -1;
+        }
+
+        if (listen(sockfd, 20) < 0) {
+            perror("listen() error!\n");
+            return -1;
+        }
+    }
 }
