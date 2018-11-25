@@ -6,23 +6,36 @@
  ************************************************************************/
 
 #include "head.h"
-#include "connect_socket.c"
 
-int send_file(char *file_name, struct sockaddr_in addr) {
-	char *short_port = (char *)malloc(sizeof(char) * 5);
-    get_conf_value("./piheadlthd.conf", "short_port", short_port);
+int connect_socket(char *host, char *port) {
     int sockfd;
-    if ((sockfd = connect_socket(addr)) < 0) {
+    struct sockaddr_in dest_addr;
+    if ((sockfd = socket(AF_INET, SOCK_STREAM, 0)) < 0) {
+        perror("Socket Error");
+        return -1;
+    }
+    dest_addr.sin_family = AF_INET;
+    dest_addr.sin_port = htons(atoi(port));
+    dest_addr.sin_addr.s_addr = inet_addr(host);
+    if (connect(sockfd, (struct sockaddr * )&dest_addr, sizeof(dest_addr))) {
         perror("Connect Error");
         return -1;
     }
-    //char file_name[FILE_NAME_MAX_SIZE + 1];
-    //bzero(file_name, sizeof(file_name));
-    //printf("Please input file name on server : \t");
-    //strncpy(file_name, buffer, strlen(buffer) > FILE_NAME_MAX_SIZE ? FILE_NAME_MAX_SIZE : strlen(buffer));
-    //scanf("%s", file_name);
+    return sockfd;
+}
 
+int send_file(char *file_name) {
+	char *short_port = (char *)malloc(sizeof(char) * 5);
+    get_conf_value("./piheadlthd.conf", "short_port", short_port);
+    char *master_host = (char *)malloc(sizeof(char) * 5);
+    get_conf_value("./piheadlthd.conf", "master_host", master_host);
+    int sockfd;
+    if ((sockfd = connect_socket(master_host, short_port)) < 0) {
+        perror("Connect Error");
+        return -1;
+    }
     FILE *fp = fopen(file_name, "r");
+    char *buffer = (char *)malloc(sizeof(char) * 1024);
     if (NULL == fp) {
         printf("File: %s Not Found!\n", file_name);
     } else {
@@ -39,4 +52,6 @@ int send_file(char *file_name, struct sockaddr_in addr) {
     }
     fclose(fp);
     printf("Send File:\t%s Successful!\n", file_name);
+    close(sockfd);
+    return 1;
 }

@@ -8,9 +8,7 @@
 //编译-lpthread
 
 #include "head.h"
-#include "master_connect_socket.c"
-#include "socket_listen.c"
-//#include "get_conf_value.c"
+#include "get_conf_value.c"
 #define INS 5
 
 typedef struct Node {
@@ -140,6 +138,43 @@ void clear(LinkedList head) {
     return ;
 }
 
+int connect_socket(struct sockaddr_in dest_addr) {
+	char *connect_port = (char *)malloc(sizeof(char) * 5);
+    get_conf_value("./piheadlthd.conf", "connect_port", connect_port);
+    int sockfd;
+    if ((sockfd = socket(AF_INET, SOCK_STREAM, 0)) < 0) {
+        perror("Socket Error");
+        return -1;
+    }
+	dest_addr.sin_port = atoi(connect_port);
+    if (connect(sockfd, (struct sockaddr *)&dest_addr, sizeof(dest_addr)) < 0) {
+        perror("Connect Error");
+        return -1;
+    }
+    return sockfd;
+}
+
+int socket_listen(char *port) {
+    int sockfd;
+    struct sockaddr_in sock_addr;
+    if ((sockfd = socket(AF_INET, SOCK_STREAM, 0)) < 0) {
+        perror("Socket Error");
+        return -1;
+    }
+    sock_addr.sin_family = AF_INET;
+    sock_addr.sin_port = htons(atoi(port));
+    sock_addr.sin_addr.s_addr = htonl(INADDR_ANY);
+    if ((bind(sockfd, (struct sockaddr *)&sock_addr, sizeof(struct sockaddr))) < 0) {
+        perror("Bind Error");
+        return -1;
+    }
+    if (listen(sockfd, 20) < 0) {
+        perror("Listen Error");
+        return -1;
+    }
+    return sockfd;
+}
+
 void *func(void *argv) {
     struct mypara *para;
     para = (struct mypara *) argv;
@@ -185,11 +220,10 @@ int main() {
     pthread_t t[INS + 1];
     struct mypara para[INS + 1];
     init();
-    int server_listen, sockfd, port, pid;
+    int server_listen, sockfd, pid;
     char *client_port = (char *)malloc(sizeof(char) * 5);
     get_conf_value("./piheadlthd.conf", "client_port", client_port);
-    port = atoi(client_port);
-    server_listen = socket_listen(port);
+    server_listen = socket_listen(client_port);
     for (int i = 0; i < INS; ++i) {
         para[i].s = "Check";
         para[i].num = i;

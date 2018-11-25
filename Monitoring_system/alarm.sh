@@ -19,7 +19,7 @@ elif [[ ${Disk_useper}<90 ]]; then
     Disk_alarm="note"
 else
     Disk_alarm="warning"
-    echo "$Time $User Disk $Disk_alarm Disk usage $Disk_useper" >> /var/log/warning.log
+    echo "$Time $User Disk $Disk_alarm Disk usage $Disk_useper" >> ./warning.log
     echo "$Time $User Proc $Disk_alarm danger Proc "`ps | awk '{print $}'`""
 fi 
 
@@ -29,7 +29,7 @@ elif [[ ${CPU_temperature}<70 ]]; then
     CPU_alarm="note"
 else 
     CPU_alarm="warning"
-    echo "$Time $User CPU $CPU_alarm CPU temperature $CPU_temperature" >> /var/log/warning.log
+    echo "$Time $User CPU $CPU_alarm CPU temperature $CPU_temperature" >> ./warning.log
 fi
 
 if [[ ${MEM_useper}<70 ]]; then
@@ -38,6 +38,6 @@ elif [[ ${MEM_useper}<80 ]]; then
     MEM_alarm="note"
 else 
     MEM_alarm="warning"
-    echo "$Time $User MEM $MEM_alarm MEM usage $MEM_useper" >> /var/log/warning.log
+    echo "$Time $User MEM $MEM_alarm MEM usage $MEM_useper" >> ./warning.log
 fi
-echo "bash" >> /var/log/warning.log
+echo "bash" >> ./warning.log
