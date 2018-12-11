@@ -6,8 +6,9 @@
  ************************************************************************/
 
 #include "head.h"
+#include "get_conf_value.c"
 
-int connect_socket(char *host, char *port) {
+int connect_socket_send(char *host, char *port) {
     int sockfd;
     struct sockaddr_in dest_addr;
     if ((sockfd = socket(AF_INET, SOCK_STREAM, 0)) < 0) {
@@ -30,7 +31,7 @@ int send_file(char *file_name) {
     char *master_host = (char *)malloc(sizeof(char) * 5);
     get_conf_value("./piheadlthd.conf", "master_host", master_host);
     int sockfd;
-    if ((sockfd = connect_socket(master_host, short_port)) < 0) {
+    if ((sockfd = connect_socket_send(master_host, short_port)) < 0) {
         perror("Connect Error");
         return -1;
     }
@@ -45,10 +46,11 @@ int send_file(char *file_name) {
             if (num_fread < 0) {
                 perror("Fread Error");
                 return -1;
-        }
-        send(sock_client, buffer, num_fread, 0);
+            }
+        send(sockfd, buffer, num_fread, 0);
         bzero(buffer, sizeof(buffer));
-        close(sock_client);
+        close(sockfd);
+        }
     }
     fclose(fp);
     printf("Send File:\t%s Successful!\n", file_name);

@@ -28,5 +28,4 @@ else
     CPU_ALARM="warning"
 fi
 
-echo "$TIME [$LOAD] ${CPU_USEAGE}% $TEMPERATURE $CPU_ALARM"
-
+echo "$TIME [$LOAD] ${CPU_USEAGE}% $TEMPERATURE $CPU_ALARM" >> ./logfile/CPU.log

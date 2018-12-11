@@ -1,5 +1,9 @@
 #include "head.h"
-#include "get_conf_value.c"
+//#include "get_conf_value.c"
+#include "ask.c"
+
+#define BUFFER_SIZE 1024
+#define FILE_SIZE 512
 
 int connect_socket(char *host, char *port) {
     int sockfd;
@@ -63,6 +67,10 @@ int main() {
             break;
         }
 		printf("Master Connect Success!\n");
+        char buffer[BUFFER_SIZE];
+        while (recv(sock_client, buffer, BUFFER_SIZE, 0) > 0) {
+            client_ask(sock_client, buffer);
+        }
         close(sock_client);
 	}
 	close(sock_listen);
