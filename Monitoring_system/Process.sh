@@ -26,4 +26,4 @@ done
 
 Process=`cat Process.txt`
 
-echo "$TIME $Process"
+echo "$TIME $Process" >> ./logfile/Process.log

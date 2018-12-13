@@ -1,2 +1,0 @@
-./a.out 20451 tanxiao+ 100 0.0
-./a.out 20550 tanxiao+ 105 0.0

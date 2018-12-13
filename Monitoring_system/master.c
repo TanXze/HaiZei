@@ -24,6 +24,8 @@ struct mypara {
 int queue[INS + 1] = {0};
 LinkedList linkedlist[INS + 5]; 
 FILE *log1[INS + 1]; 
+pthread_mutex_t mutex[INS + 1];
+pthread_mutex_t mutex_add = PTHREAD_MUTEX_INITIALIZER;
 
 Node *init_node(int port, char *IP) {
     struct sockaddr_in init_addr;
@@ -72,7 +74,6 @@ void init() {
     int port = atoi(port_buf);
     for (int i = 51; i <= 100; i++) {
         sprintf(temp, "%s.%d", buffer, i);
-		printf("%s\n", temp);
 	    int min = find_min(INS, queue);
         Node *p, ret;
         p = init_node(port, temp);
@@ -142,37 +143,33 @@ int connect_socket(struct sockaddr_in dest_addr) {
     get_conf_value("./piheadlthd.conf", "connect_port", connect_port);
     int sockfd;
     if ((sockfd = socket(AF_INET, SOCK_STREAM, 0)) < 0) {
-        perror("socket() error!\n");
+        perror("Socket Error");
         return -1;
     }
 	dest_addr.sin_port = atoi(connect_port);
     if (connect(sockfd, (struct sockaddr *)&dest_addr, sizeof(dest_addr)) < 0) {
-        perror("connect() error\n");
+        perror("Connect Error");
         return -1;
     }
     return sockfd;
 }
 
-int create_socket(int port) {
+int socket_listen(char *port) {
     int sockfd;
     struct sockaddr_in sock_addr;
-    struct linger m_sLinger;
     if ((sockfd = socket(AF_INET, SOCK_STREAM, 0)) < 0) {
-        perror("socket() error!\n");
+        perror("Socket Error");
         return -1;
     }
     sock_addr.sin_family = AF_INET;
-    sock_addr.sin_port = htons(port);
+    sock_addr.sin_port = htons(atoi(port));
     sock_addr.sin_addr.s_addr = htonl(INADDR_ANY);
-    setsockopt(sockfd, SOL_SOCKET, SO_LINGER, (const char *)&m_sLinger, sizeof(struct linger));
     if ((bind(sockfd, (struct sockaddr *)&sock_addr, sizeof(struct sockaddr))) < 0) {
-        close(sockfd);
-        perror("bind() error!\n");
+        perror("Bind Error");
         return -1;
     }
     if (listen(sockfd, 20) < 0) {
-        close(sockfd);
-        perror("listen() error!\n");
+        perror("Listen Error");
         return -1;
     }
     return sockfd;
@@ -189,12 +186,12 @@ void *func(void *argv) {
     /*while (p) {
         sockfd = connect_socket(q->addr);
         if (sockfd < 0) {
-            printf("delete %s\n", inet_ntoa(p->addr.sin_addr));
+            printf("Delete %s\n", inet_ntoa(p->addr.sin_addr));
             q = delete_node(q, count);
 			queue[para->num]--;
         } else {
             count++;
-            printf(" %s is connecting\n", inet_ntoa(p->addr.sin_addr));
+            printf(" %s is Connecting\n", inet_ntoa(p->addr.sin_addr));
         }
 		p = p->next;
         close(sockfd);
@@ -202,12 +199,12 @@ void *func(void *argv) {
 	while (n < length) {
 		sockfd = connect_socket(linkedlist[para->num]->addr);
 		if (sockfd < 0) {
-			printf("delete %s\n", inet_ntoa(linkedlist[para->num]->addr.sin_addr));
+			printf("Delete %s\n", inet_ntoa(linkedlist[para->num]->addr.sin_addr));
 			linkedlist[para->num] = delete_node(linkedlist[para->num], count);
 			queue[para->num]--;
 		} else {
 			count++;
-			printf("%s is connecting\n", inet_ntoa(linkedlist[para->num]->addr.sin_addr));
+			printf("%s is Connecting\n", inet_ntoa(linkedlist[para->num]->addr.sin_addr));
 		}
 		n++;
 		close(sockfd);
@@ -223,16 +220,15 @@ int main() {
     pthread_t t[INS + 1];
     struct mypara para[INS + 1];
     init();
-    int server_listen,sockfd, port, pid;
+    int server_listen, sockfd, pid;
     char *client_port = (char *)malloc(sizeof(char) * 5);
     get_conf_value("./piheadlthd.conf", "client_port", client_port);
-    port = atoi(client_port);
-    server_listen = create_socket(port);
+    server_listen = socket_listen(client_port);
     for (int i = 0; i < INS; ++i) {
-        para[i].s = "check";
+        para[i].s = "Check";
         para[i].num = i;
         if (pthread_create(&t[i], NULL, func, (void *)&para[i]) == -1) {
-            printf("error\n");
+            printf("Pthread Create Error\n");
             exit(1);
         }
     }
@@ -240,7 +236,7 @@ int main() {
         struct sockaddr_in client_addr;
         socklen_t len = sizeof(client_addr);
         if ((sockfd = accept(server_listen, (struct sockaddr *)&client_addr, &len)) < 0) {
-            perror("accept error!\n");
+            perror("Accept Error!\n");
             break;
         }
         int min = find_min(INS, queue);
@@ -248,15 +244,17 @@ int main() {
         p = (Node *)malloc(sizeof(Node));
         p->addr = client_addr;
         p->next = NULL;
+        //pthread_mutex_lock(&mutex[min]);
         ret = insert(linkedlist[min], p, queue[min]);
 		queue[min]++;
         output(linkedlist[min], para->num);
         linkedlist[min] = ret.next;
+        //pthread_mutex_unlock(&mutex[min]);
 		if (pthread_kill(t[min], 0) == ESRCH) {
-			para[min].s = "check";
+			para[min].s = "Check";
         	para[min].num = min;
 	        if (pthread_create(&t[min], NULL, func, (void *)&para[min]) == -1) {
-				printf("error\n");
+				printf("Pthread Create Error\n");
 				exit(1);
 			}
 		}

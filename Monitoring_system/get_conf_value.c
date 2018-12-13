@@ -16,12 +16,12 @@ int get_conf_value (char *pathname, char *key_name, char *value) {
     ssize_t read;
 
     if (key_name == NULL || value == NULL) {
-        printf("paramer is invaild!\n");
+        printf("Paramer is Invaild!\n");
         exit(-1);
     }
     fp = fopen(pathname, "r");
     if (fp == NULL) {
-        printf("Open config, file, error!\n");
+        printf("Open File Error!\n");
         exit(-1);
     }
 
@@ -38,63 +38,17 @@ int get_conf_value (char *pathname, char *key_name, char *value) {
                 break;
             }
             else {
-                printf("Maybe there is something wrong with config file");
+                printf("Maybe There is Something Wrong With File\n");
                 continue;
             }
         }
     }
     if (substr == NULL) {
-        printf("%s not found is config file!\n", key_name);
+        printf("%s Not Found in File\n", key_name);
         fclose(fp);
         exit(-1);
     }
-    //printf("%s=%s\n", key_name, value);
     free(line);
     fclose(fp);
     return 0;
 }
-
-/*#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-
-int get_conf_value(char *pathname, char *key_name, char *value) {
-    FILE *fp;
-    char *line;
-    size_t len = 0;
-    ssize_t read;
-    int key_name_len, value_len;
-    fp = fopen(pathname, "r");
-    if (fp == NULL) {
-        printf("Can not open the file!\n");
-        return -1;
-    }
-
-    while ((read = getline(&line, &len, fp)) != -1) {
-        if (strstr(line, key_name) == NULL) {
-            continue;
-        } else {
-            key_name_len = strlen(key_name);
-            if (line[key_name_len] == '=') {
-                strncpy(value, &line[key_name_len + 1], (int)read - key_name_len);
-                value_len = strlen(value);
-                *(value + value_len - 2) = '\0';
-                break;
-            } else {
-                printf("Error");
-                continue;
-            }
-        }
-    }
-
-    if (strstr(line, key_name) == NULL) {
-        printf("%s can not find!\n", key_name);
-        fclose(fp);
-        return -1;
-    }
-
-    printf("%s\n", value);
-    free(line);
-    fclose(fp);
-    return 0;
-}*/
