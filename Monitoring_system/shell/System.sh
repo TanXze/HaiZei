@@ -1,7 +1,7 @@
 #!/bin/bash
 
-echo "`df -m | grep -v "tmpfs" | grep -v "Filesystem" | grep -v "loop" | grep -v "udev" | tail -n 2 | awk '{print $2,$3,$4,$5,$6}'`" > df.txt
-echo "`free -m | head -n 2 | tail -n 1`" > free.txt
+echo "`df -m | grep -v "tmpfs" | grep -v "Filesystem" | grep -v "loop" | grep -v "udev" | tail -n 2 | awk '{print $2,$3,$4,$5,$6}'`" > ./txtfile/df.txt
+echo "`free -m | head -n 2 | tail -n 1`" > ./txtfile/free.txt
 
 TIME=`date +"%Y-%m-%d__%H:%M"`
 HOSTNAME=`hostname`
@@ -9,11 +9,11 @@ OS=`uname -o`
 KERNEL=`uname -v`
 RUNTIME=`uptime -p`
 LOADAVERAGE=`uptime | awk '{for(i=NF-2;i<=NF;i++)printf("%s",$i)}'`
-DISK_TOTAL=`cat df.txt | awk '{print $1}' | echo $[$(tr '\n' '+')0]`
-DISK_USE=`cat df.txt | awk '{print $2}' | echo $[$(tr '\n' '+')0]`
+DISK_TOTAL=`cat ./txtfile/df.txt | awk '{print $1}' | echo $[$(tr '\n' '+')0]`
+DISK_USE=`cat ./txtfile/df.txt | awk '{print $2}' | echo $[$(tr '\n' '+')0]`
 DISK_USEPER=`echo "scale=1;${DISK_USE}*100/${DISK_TOTAL}" | bc`
-MEM_TOTAL=`cat free.txt | awk '{print $2}'`
-MEM_USE=`cat free.txt | awk '{print $3}'`
+MEM_TOTAL=`cat ./txtfile/free.txt | awk '{print $2}'`
+MEM_USE=`cat ./txtfile/free.txt | awk '{print $3}'`
 MEM_USEPER=`echo "scale=1;${MEM_USE}*100/${MEM_TOTAL}" | bc`
 CPU_TEMPERATURE=`sensors | grep "CPU" | awk '{print $2}'`
 

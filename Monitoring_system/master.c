@@ -111,8 +111,8 @@ Node *delete_node(LinkedList head, int index) {
 
 void output(LinkedList head, int num) {
     Node *p = head;
-    char logfile[20];
-    sprintf(logfile, "%d.log", num);
+    char logfile[50];
+    sprintf(logfile, "./master_logfile/%d.log", num);
     log1[num] = fopen(logfile, "w");
     char *client_port = (char *)malloc(sizeof(char) * 5);
     get_conf_value("./piheadlthd.conf", "client_port", client_port);

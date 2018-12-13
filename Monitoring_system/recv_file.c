@@ -10,7 +10,7 @@
 #define BUFFER_SIZE 1024
 #define FILE_NAME_MAX_SIZE 512
 
-int recv_file(int sock_server, char *buffer, char *file_name, struct sockaddr_in addr, char *file_type) {
+int recv_file(int sock_server, char *file_name, struct sockaddr_in addr, char *file_type) {
     char *buffer = (char *)malloc(sizeof(char) * BUFFER_SIZE);
     bzero(buffer, sizeof(buffer));
     while (recv(sock_server, buffer, BUFFER_SIZE, 0) > 0) {

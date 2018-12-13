@@ -1,6 +1,6 @@
 #include "head.h"
 //#include "get_conf_value.c"
-#include "ask.c"
+#include "send_ask.c"
 
 #define BUFFER_SIZE 1024
 #define FILE_SIZE 512
@@ -22,7 +22,7 @@ int connect_socket(char *host, char *port) {
     return sockfd;
 }
 
-int socket_listen(char *port) {
+/*int socket_listen(char *port) {
     int sockfd;
     struct sockaddr_in sock_addr;
     if ((sockfd = socket(AF_INET, SOCK_STREAM, 0)) < 0) {
@@ -41,7 +41,7 @@ int socket_listen(char *port) {
         return -1;
     }
     return sockfd;
-}
+}*/
 
 int main() {
     int sock_client;
@@ -68,6 +68,7 @@ int main() {
         }
 		printf("Master Connect Success!\n");
         char buffer[BUFFER_SIZE];
+        bzero(buffer, sizeof(buffer));
         while (recv(sock_client, buffer, BUFFER_SIZE, 0) > 0) {
             client_ask(sock_client, buffer);
         }

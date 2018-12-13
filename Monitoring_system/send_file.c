@@ -8,25 +8,8 @@
 #include "head.h"
 #include "get_conf_value.c"
 
-int connect_socket_send(char *host, char *port) {
-    int sockfd;
-    struct sockaddr_in dest_addr;
-    if ((sockfd = socket(AF_INET, SOCK_STREAM, 0)) < 0) {
-        perror("Socket Error");
-        return -1;
-    }
-    dest_addr.sin_family = AF_INET;
-    dest_addr.sin_port = htons(atoi(port));
-    dest_addr.sin_addr.s_addr = inet_addr(host);
-    if (connect(sockfd, (struct sockaddr * )&dest_addr, sizeof(dest_addr))) {
-        perror("Connect Error");
-        return -1;
-    }
-    return sockfd;
-}
-
-int send_file(char *file_name) {
-	char *short_port = (char *)malloc(sizeof(char) * 5);
+int send_file(int sockfd, char *file_name) {
+	/*char *short_port = (char *)malloc(sizeof(char) * 5);
     get_conf_value("./piheadlthd.conf", "short_port", short_port);
     char *master_host = (char *)malloc(sizeof(char) * 5);
     get_conf_value("./piheadlthd.conf", "master_host", master_host);
@@ -35,6 +18,14 @@ int send_file(char *file_name) {
         perror("Connect Error");
         return -1;
     }
+    int sockfd = socket_listen(short_port);
+	struct sockaddr_in master_addr;
+    socklen_t len = sizeof(master_addr);
+    if ((sock_client= accept(sock_listen, (struct sockaddr *)&master_addr, &len)) < 0) {
+        perror("Accept Error!");
+        break;
+    }
+	printf("Master Short Connect Success! Waiting Send!\n");*/
     FILE *fp = fopen(file_name, "r");
     char *buffer = (char *)malloc(sizeof(char) * 1024);
     if (NULL == fp) {

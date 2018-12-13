@@ -1,5 +1,5 @@
 3893 0 3893 0% /dev
-41018 16836 22076 44% /
+41018 16917 21995 44% /
 13 13 0 100% /snap/gnome-characters/117
 3 3 0 100% /snap/gnome-calculator/222
 3 3 0 100% /snap/gnome-calculator/238

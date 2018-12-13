@@ -44,6 +44,6 @@ int write_Pi_log(char *PiHealthLog, const char *format, ...) {
 
 int main() {
     char str[10] = "hello";
-    write_Pi_log("Pi.log", "write %s into ./write.log\n", str);
+    write_Pi_log("Pi.log", "write %s into ./logfile/write.log\n", str);
     return 0;
 }
