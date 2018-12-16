@@ -9,7 +9,9 @@
 
 #include "head.h"
 #include "get_conf_value.c"
+
 #define INS 5
+#define BUFFER_SIZE 1024
 
 typedef struct Node {
     struct sockaddr_in addr; 
@@ -24,8 +26,7 @@ struct mypara {
 int queue[INS + 1] = {0};
 LinkedList linkedlist[INS + 5]; 
 FILE *log1[INS + 1]; 
-pthread_mutex_t mutex[INS + 1];
-pthread_mutex_t mutex_add = PTHREAD_MUTEX_INITIALIZER;
+static pthread_mutex_t mutex[INS + 1] = PTHREAD_MUTEX_INITIALIZER;
 
 Node *init_node(int port, char *IP) {
     struct sockaddr_in init_addr;
@@ -138,15 +139,16 @@ void clear(LinkedList head) {
     return ;
 }
 
-int connect_socket(struct sockaddr_in dest_addr) {
-	char *connect_port = (char *)malloc(sizeof(char) * 5);
-    get_conf_value("./piheadlthd.conf", "connect_port", connect_port);
+int connect_socket(int port, struct sockaddr_in dest_addr) {
+	//char *connect_port = (char *)malloc(sizeof(char) * 5);
+    //get_conf_value("./piheadlthd.conf", "connect_port", connect_port);
     int sockfd;
     if ((sockfd = socket(AF_INET, SOCK_STREAM, 0)) < 0) {
         perror("Socket Error");
         return -1;
     }
-	dest_addr.sin_port = atoi(connect_port);
+	//dest_addr.sin_port = htons(port);
+    dest_addr.sin_port = port;
     if (connect(sockfd, (struct sockaddr *)&dest_addr, sizeof(dest_addr)) < 0) {
         perror("Connect Error");
         return -1;
@@ -175,44 +177,122 @@ int socket_listen(char *port) {
     return sockfd;
 }
 
+void getfilename(int ack, char *filename) {
+    switch (ack) {
+        case 100 : {
+            sprintf(filename, "CPU.log");
+        } break;
+        case 200 : {
+            sprintf(filename, "Mem.log");
+        } break;
+        case 300 : {
+            sprintf(filename, "Disk.log");
+        } break;
+        case 400 : {
+            sprintf(filename, "System.log");
+        } break;
+        case 500 : {
+            sprintf(filename, "User.log");
+        } break;
+        case 600 : {
+            sprintf(filename, "Process.log");
+        } break;
+        default : {
+            printf("Ack Error!\n"); break;
+        }
+    }
+}
+
 void *func(void *argv) {
     struct mypara *para;
     para = (struct mypara *) argv;
-    Node *p, *q, ret;
+    //Node *p, *q, ret;
     //p = linkedlist[para->num];
     //q = linkedlist[para->num];
-    int sockfd = -1;
-    int count = 0, n = 0, length = queue[para->num];
-    /*while (p) {
-        sockfd = connect_socket(q->addr);
-        if (sockfd < 0) {
-            printf("Delete %s\n", inet_ntoa(p->addr.sin_addr));
-            q = delete_node(q, count);
-			queue[para->num]--;
-        } else {
-            count++;
-            printf(" %s is Connecting\n", inet_ntoa(p->addr.sin_addr));
+    while (1) {
+        if (!queue[para->num]) {
+            sleep(5);
+            continue;
         }
-		p = p->next;
-        close(sockfd);
-    }*/
-	while (n < length) {
-		sockfd = connect_socket(linkedlist[para->num]->addr);
-		if (sockfd < 0) {
-			printf("Delete %s\n", inet_ntoa(linkedlist[para->num]->addr.sin_addr));
-			linkedlist[para->num] = delete_node(linkedlist[para->num], count);
-			queue[para->num]--;
-		} else {
-			count++;
-			printf("%s is Connecting\n", inet_ntoa(linkedlist[para->num]->addr.sin_addr));
-		}
-		n++;
-		close(sockfd);
-	}
-    //linkedlist[para->num] = q;
-    output(linkedlist[para->num], para->num);
-    //clear(p);
-    //clear(q);
+        int sockfd = -1;
+        int count = 0, n = 0, length = queue[para->num], ack = 100;
+        /*while (p) {
+            sockfd = connect_socket(q->addr);
+            if (sockfd < 0) {
+                printf("Delete %s\n", inet_ntoa(p->addr.sin_addr));
+                q = delete_node(q, count);
+			    queue[para->num]--;
+            } else {
+                count++;
+                printf(" %s is Connecting\n", inet_ntoa(p->addr.sin_addr));
+            }
+		    p = p->next;
+            close(sockfd);
+        }*/
+	    char *connect_port = (char *)malloc(sizeof(char) * 5);
+        get_conf_value("./piheadlthd.conf", "connect_port", connect_port);
+        int long_port = atoi(connect_port);
+        pthread_mutex_lock(&mutex[para->num]);
+	    while (n < length) {
+		    sockfd = connect_socket(long_port, linkedlist[para->num]->addr);
+		    if (sockfd < 0) {
+			    printf("Delete %s\n", inet_ntoa(linkedlist[para->num]->addr.sin_addr));
+			    linkedlist[para->num] = delete_node(linkedlist[para->num], count);
+			    queue[para->num]--;
+		    } else {
+			    count++;
+			    printf("%s is Connecting\n", inet_ntoa(linkedlist[para->num]->addr.sin_addr));
+                send(sockfd, &ack, 4, 0);
+                char *filename = (char *)malloc(sizeof(char) * 20);
+                getfilename(ack, filename);
+                while (recv(sockfd, &ack, 4, 0) > 0) {
+                    sleep(5);
+                    int short_socket;
+                    char *short_port = (char *)malloc(sizeof(char) * 5);
+                    get_conf_value("./piheadlthd.conf", "short_port", short_port);
+                    int port = atoi(short_port);
+                    short_socket = connect_socket(port, linkedlist[para->num]->addr);
+                    char path[100];
+                    //sprintf(path, "%s", inet_ntoa(linkedlist[para->num]->addr.sin_addr));
+                    //strcat(path, "/");
+                    strcat(path, filename);
+                    char buffer[BUFFER_SIZE];
+                    bzero(buffer, sizeof(buffer));
+                    FILE *fp = fopen(path, "a+");
+                    if (NULL == fp) {
+                        printf("File:\t%s Can Not Open To Write!\n", path);
+                    }
+                    //bzero(buffer, sizeof(buffer));
+                    int length = 0;
+                    while ((length = recv(short_socket, buffer, BUFFER_SIZE, 0)) > 0) {
+                        if (fwrite(buffer, sizeof(char), length, fp) < length) {
+                            printf("Fail:\t%s Write Failed!\n", path);
+                            break;
+                        }
+                        bzero(buffer, sizeof(buffer));
+                    }
+                    printf("Receive File To Path :\t%s From Client :\t %s Successfully!\n", path, inet_ntoa(linkedlist[para->num]->addr.sin_addr));
+                    fclose(fp);
+                    if (length == 0) {
+                        printf("%s Close!\n", inet_ntoa(linkedlist[para->num]->addr.sin_addr));
+                    } else if (length < 0) {
+                        printf("Recv Error!\n");
+                    }
+                    ack += 100;
+                    if (ack == 700) break;
+                    send(sockfd, &ack, 4, 0);
+                    getfilename(ack, filename);
+                }
+		    }
+		    n++;
+		    close(sockfd);
+	    }
+        //linkedlist[para->num] = q;
+        output(linkedlist[para->num], para->num);
+        pthread_mutex_unlock(&mutex[para->num]);
+        //clear(p);
+        //clear(q);
+    }
     return NULL;
 }
 
@@ -244,20 +324,20 @@ int main() {
         p = (Node *)malloc(sizeof(Node));
         p->addr = client_addr;
         p->next = NULL;
-        //pthread_mutex_lock(&mutex[min]);
+        pthread_mutex_lock(&mutex[min]);
         ret = insert(linkedlist[min], p, queue[min]);
 		queue[min]++;
         output(linkedlist[min], para->num);
         linkedlist[min] = ret.next;
-        //pthread_mutex_unlock(&mutex[min]);
-		if (pthread_kill(t[min], 0) == ESRCH) {
+        pthread_mutex_unlock(&mutex[min]);
+		/*if (pthread_kill(t[min], 0) == ESRCH) {
 			para[min].s = "Check";
         	para[min].num = min;
 	        if (pthread_create(&t[min], NULL, func, (void *)&para[min]) == -1) {
 				printf("Pthread Create Error\n");
 				exit(1);
 			}
-		}
+		}*/
         close(sockfd);
     }
     pthread_join(t[0], NULL);
