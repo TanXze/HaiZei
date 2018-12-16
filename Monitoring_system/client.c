@@ -77,7 +77,9 @@ void get_filename (int ack, char *filename) {
     }
 }
 
-void *func (void *argv) {
+
+
+void *func(void *argv) {
 	struct mypara *para;
 	para = (struct mypara *) argv;
 	char **bashFileName = (char **)malloc(sizeof(char *) * (INS + 1));
@@ -107,8 +109,6 @@ void *func (void *argv) {
 		default : printf("Para->num Error!\n"); break;
 	}
 	FILE *fp;
-	//char buffer[BUFFER_SIZE];
-    //bzero(buffer, sizeof(buffer));
 	while (1) {
 		for (int i = 0; i < n; i++) {
 			pthread_mutex_lock(&mutex[para->num]);
@@ -118,6 +118,56 @@ void *func (void *argv) {
 		}
 		sleep(waittime);
 	}
+    return NULL;
+}
+
+void *alarm_func(void *argv) {
+    struct mypara *para;
+    para = (struct mypara *) argv;
+    char bashFileName[50], filename[50];
+    sprintf(bashFileName, "bash ./shell/Alarm.sh");
+    sprintf(filename, "./shell/logfile/warning.log");
+    FILE *fp, *fd;
+    while (1) {
+        pthread_mutex_lock(&mutex[para->num]);
+        fp = popen(bashFileName, "r");
+        pclose(fp);
+        pthread_mutex_unlock(&mutex[para->num]);
+        sleep(5);
+        fd = fopen(filename, "r");
+        char ch;
+        if ((ch = fgetc(fd)) != EOF) {
+            int alarm_socket;
+	        char *master_host = (char *)malloc(sizeof(char) * 5);
+            get_conf_value("./piheadlthd.conf", "master_host", master_host);
+	        char *alarm_port = (char *)malloc(sizeof(char) * 5);
+            get_conf_value("./piheadlthd.conf", "client_port", alarm_port);
+            if ((alarm_socket = connect_socket(master_host, alarm_port)) < 0) {
+                perror("Connect Error");
+                return NULL;
+            }
+            printf("Alarm Connect Success!\n");
+	        close(alarm_socket);
+            char buffer[BUFFER_SIZE];
+            bzero(buffer, sizeof(buffer));
+            while (!feof(fd)) {
+                int num_fread = fread(buffer, sizeof(char), 1, fd);
+                if (num_fread < 0) {
+                    perror("Fread Error");
+                    return NULL;
+                }
+                send(alarm_socket, buffer, num_fread, 0);
+                bzero(buffer, sizeof(buffer));
+            }
+            fclose(fd);
+            if (remove(filename) != 0) {
+                perror("Remove Error");
+            }
+            pthread_mutex_unlock(&mutex[para->num]);
+            close(alarm_socket);
+        }
+        printf("Warning Send Success!\n");
+    }
     return NULL;
 }
 
@@ -146,6 +196,13 @@ int main() {
 		}
 	}
 
+    para[3].s = "Check";
+    para[3].num = 3;
+    if (pthread_create(&t[3], NULL, alarm_func, (void *)&para[3]) == -1) {
+        printf("Alarm Pthread Create Error!\n");
+        exit(1);
+    }
+
 	char *connect_port = (char *)malloc(sizeof(char) * 5);
     get_conf_value("./piheadlthd.conf", "connect_port", connect_port);
     int sock_listen = socket_listen(connect_port);
@@ -161,11 +218,6 @@ int main() {
             break;
         }
 		printf("Master Connect Success!\n");
-        /*char buffer[BUFFER_SIZE];
-        bzero(buffer, sizeof(buffer));
-        while (recv(sock_client, buffer, BUFFER_SIZE, 0) > 0) {
-            client_ask(sock_client, buffer);
-        }*/
         FILE *fp;
         char *filename = (char *)malloc(sizeof(char) * 100);
         while (recv(sock_client, &ack, 4, 0) > 0) {
@@ -182,7 +234,6 @@ int main() {
             }
             pthread_mutex_lock(&mutex[para->num]);
             FILE *fp = fopen(filename, "r");
-            //char *buffer = (char *)malloc(sizeof(char) * 1024);
             char buffer[BUFFER_SIZE];
             if (NULL == fp) {
                 printf("File: %s Not Found!\n", filename);

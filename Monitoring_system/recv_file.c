@@ -18,7 +18,7 @@ int recv_file(int sock_server, char *file_name, struct sockaddr_in addr, char *f
         sprintf(path, "%s", addr);
         strcat(path, "/");
         strcat(path, file_type);
-        FILE *fp = fopen(path, "w");
+        FILE *fp = fopen(path, "a+");
         if (NULL == fp) {
             printf("File:\t%s Can Not Open To Write!\n", path);
             return -1;
