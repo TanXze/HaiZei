@@ -1,6 +1,5 @@
 #include "head.h"
 #include "get_conf_value.c"
-//#include "send_ask.c"
 
 #define BUFFER_SIZE 1024
 #define FILE_SIZE 512
@@ -129,10 +128,8 @@ void *alarm_func(void *argv) {
     sprintf(filename, "./shell/logfile/warning.log");
     FILE *fp, *fd;
     while (1) {
-        pthread_mutex_lock(&mutex[para->num]);
         fp = popen(bashFileName, "r");
         pclose(fp);
-        pthread_mutex_unlock(&mutex[para->num]);
         sleep(5);
         fd = fopen(filename, "r");
         char ch;
@@ -147,13 +144,12 @@ void *alarm_func(void *argv) {
                 return NULL;
             }
             printf("Alarm Connect Success!\n");
-	        close(alarm_socket);
             char buffer[BUFFER_SIZE];
             bzero(buffer, sizeof(buffer));
             while (!feof(fd)) {
                 int num_fread = fread(buffer, sizeof(char), 1, fd);
                 if (num_fread < 0) {
-                    perror("Fread Error");
+                    perror("Fread Alarm Error");
                     return NULL;
                 }
                 send(alarm_socket, buffer, num_fread, 0);
@@ -163,10 +159,9 @@ void *alarm_func(void *argv) {
             if (remove(filename) != 0) {
                 perror("Remove Error");
             }
-            pthread_mutex_unlock(&mutex[para->num]);
             close(alarm_socket);
+    	    printf("Warning Send Success!\n");
         }
-        printf("Warning Send Success!\n");
     }
     return NULL;
 }
@@ -196,12 +191,11 @@ int main() {
 		}
 	}
 
-    para[3].s = "Check";
-    para[3].num = 3;
-    if (pthread_create(&t[3], NULL, alarm_func, (void *)&para[3]) == -1) {
+	/*pthread_t alarm_t;
+    if (pthread_create(&alarm_t, NULL, alarm_func, NULL) == -1) {
         printf("Alarm Pthread Create Error!\n");
         exit(1);
-    }
+    }*/
 
 	char *connect_port = (char *)malloc(sizeof(char) * 5);
     get_conf_value("./piheadlthd.conf", "connect_port", connect_port);

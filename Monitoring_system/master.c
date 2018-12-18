@@ -232,6 +232,7 @@ void *func(void *argv) {
                 sprintf(commond, "mkdir %s", path);
                 if (access(path, 0) != 0) {
                     FILE *fp = popen(commond, "r");
+					pclose(fp);
                 }
                 while (recv(sockfd, &ack, 4, 0) > 0) {
                     sleep(5);
@@ -299,6 +300,7 @@ void *alarm_func(void *argv) {
         sprintf(commond, "mkdir %s", path);
         if (access(path, 0) != 0) {
             FILE *fp = popen(commond, "r");
+			pclose(fp);
         }
         char buffer[BUFFER_SIZE];
         bzero(buffer, sizeof(buffer));
@@ -308,6 +310,7 @@ void *alarm_func(void *argv) {
         FILE *fp = fopen(pathfile, "a+");
         if (NULL == fp) {
             printf("File:\t%s Can Not Open To Write!\n", pathfile);
+			exit(0);
         }
         int length = 0;
         while ((length = recv(alarm_socket, buffer, BUFFER_SIZE, 0)) > 0) {
@@ -346,12 +349,11 @@ int main() {
         }
     }
 
-    para[5].s = "Check";
-    para[5].num = 5;
-    if (pthread_create(&t[5], NULL, alarm_func, (void *)&para[5]) == -1) {
+	/*pthread_t alarm_t;
+    if (pthread_create(&alarm_t, NULL, alarm_func, NULL) == -1) {
         printf("Alarm Pthread Created Error\n");
         exit(1);
-    }
+    }*/
 
     while (1) {
         struct sockaddr_in client_addr;
