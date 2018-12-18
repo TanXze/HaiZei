@@ -121,8 +121,6 @@ void *func(void *argv) {
 }
 
 void *alarm_func(void *argv) {
-    struct mypara *para;
-    para = (struct mypara *) argv;
     char bashFileName[50], filename[50];
     sprintf(bashFileName, "bash ./shell/Alarm.sh");
     sprintf(filename, "./shell/logfile/warning.log");
@@ -133,9 +131,9 @@ void *alarm_func(void *argv) {
         sleep(5);
         fd = fopen(filename, "r");
         char ch;
-        if ((ch = fgetc(fd)) != EOF) {
+        if (fd != NULL) {
             int alarm_socket;
-	        char *master_host = (char *)malloc(sizeof(char) * 5);
+	        char *master_host = (char *)malloc(sizeof(char) * 20);
             get_conf_value("./piheadlthd.conf", "master_host", master_host);
 	        char *alarm_port = (char *)malloc(sizeof(char) * 5);
             get_conf_value("./piheadlthd.conf", "client_port", alarm_port);
@@ -147,12 +145,11 @@ void *alarm_func(void *argv) {
             char buffer[BUFFER_SIZE];
             bzero(buffer, sizeof(buffer));
             while (!feof(fd)) {
-                int num_fread = fread(buffer, sizeof(char), 1, fd);
+                int num_fread = fread(buffer, 4, 1, fd);
                 if (num_fread < 0) {
                     perror("Fread Alarm Error");
-                    return NULL;
                 }
-                send(alarm_socket, buffer, num_fread, 0);
+                int x = send(alarm_socket, buffer, num_fread, 0);
                 bzero(buffer, sizeof(buffer));
             }
             fclose(fd);
@@ -169,7 +166,7 @@ void *alarm_func(void *argv) {
 int main() {
     int sock_client;
     struct sockaddr_in dest_addr;
-	char *master_host = (char *)malloc(sizeof(char) * 5);
+	char *master_host = (char *)malloc(sizeof(char) * 20);
     get_conf_value("./piheadlthd.conf", "master_host", master_host);
 	char *client_port = (char *)malloc(sizeof(char) * 5);
     get_conf_value("./piheadlthd.conf", "client_port", client_port);
@@ -191,11 +188,11 @@ int main() {
 		}
 	}
 
-	/*pthread_t alarm_t;
+	pthread_t alarm_t;
     if (pthread_create(&alarm_t, NULL, alarm_func, NULL) == -1) {
         printf("Alarm Pthread Create Error!\n");
         exit(1);
-    }*/
+    }
 
 	char *connect_port = (char *)malloc(sizeof(char) * 5);
     get_conf_value("./piheadlthd.conf", "connect_port", connect_port);
@@ -239,8 +236,8 @@ int main() {
                         perror("Fread Error");
                         return -1;
                     }
-                send(short_socket, buffer, num_fread, 0);
-                bzero(buffer, sizeof(buffer));
+                    send(short_socket, buffer, num_fread, 0);
+                    bzero(buffer, sizeof(buffer));
                 }
                 fclose(fp);
                 if (remove(filename) != 0) {

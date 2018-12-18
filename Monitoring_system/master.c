@@ -118,6 +118,8 @@ void output(LinkedList head, int num) {
     char *client_port = (char *)malloc(sizeof(char) * 5);
     get_conf_value("./piheadlthd.conf", "client_port", client_port);
     while (p) {
+        printf("????????\n");
+        printf("%s", inet_ntoa(p->addr.sin_addr));
         fprintf(log1[num], "%s:%s", inet_ntoa(p->addr.sin_addr), client_port);
         if (p->next) {
             fprintf(log1[num], "%s", "\n");
@@ -306,14 +308,14 @@ void *alarm_func(void *argv) {
         bzero(buffer, sizeof(buffer));
         char pathfile[100], filename[50];
         sprintf(filename, "warning.log");
-        sprintf(pathfile, "%s%s", path, filename);
+        sprintf(pathfile, "%s/%s", path, filename);
         FILE *fp = fopen(pathfile, "a+");
         if (NULL == fp) {
             printf("File:\t%s Can Not Open To Write!\n", pathfile);
 			exit(0);
         }
         int length = 0;
-        while ((length = recv(alarm_socket, buffer, BUFFER_SIZE, 0)) > 0) {
+        while ((length = recv(sockfd, buffer, BUFFER_SIZE, 0)) > 0) {
             if (fwrite(buffer, sizeof(char), length, fp) < length) {
                 printf("Fail:\t%s Write Failed!\n", pathfile);
                 break;
@@ -326,6 +328,7 @@ void *alarm_func(void *argv) {
         } else if (length < 0) {
             printf("Recv Error!\n");
         }
+        close(sockfd);
         bzero(filename, sizeof(filename));
     }
     close(alarm_socket);
@@ -349,11 +352,11 @@ int main() {
         }
     }
 
-	/*pthread_t alarm_t;
+	pthread_t alarm_t;
     if (pthread_create(&alarm_t, NULL, alarm_func, NULL) == -1) {
         printf("Alarm Pthread Created Error\n");
         exit(1);
-    }*/
+    }
 
     while (1) {
         struct sockaddr_in client_addr;
@@ -380,6 +383,9 @@ int main() {
     pthread_join(t[2], NULL);
     pthread_join(t[3], NULL);
     pthread_join(t[4], NULL);
+    for (int i = 0; i < INS; i++) {
+        output(linkedlist[i], i);
+    }
     close(server_listen); 
     return 0;
 }

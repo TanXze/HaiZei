@@ -1,1 +1,1 @@
-/opt/zoom/zoom 16918 tanxiao+ 58.2 2.4
+./a.out 6640 tanxiao+ 100 0.0

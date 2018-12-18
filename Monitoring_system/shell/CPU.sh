@@ -28,4 +28,4 @@ else
     CPU_ALARM="warning"
 fi
 
-echo "$TIME [$LOAD] ${CPU_USEAGE}% $TEMPERATURE $CPU_ALARM" >> /home/tanxiaoze/HaiZei/Monitoring_system/shell/logfile/CPU.log
+echo "$TIME [$LOAD] ${CPU_USEAGE}% $TEMPERATURE $CPU_ALARM" >> ~/HaiZei/Monitoring_system/shell/logfile/CPU.log
