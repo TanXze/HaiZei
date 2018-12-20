@@ -15,7 +15,8 @@ DISK_USEPER=`echo "scale=1;${DISK_USE}*100/${DISK_TOTAL}" | bc`
 MEM_TOTAL=`cat ~/HaiZei/Monitoring_system/shell/txtfile/free.txt | awk '{print $2}'`
 MEM_USE=`cat ~/HaiZei/Monitoring_system/shell/txtfile/free.txt | awk '{print $3}'`
 MEM_USEPER=`echo "scale=1;${MEM_USE}*100/${MEM_TOTAL}" | bc`
-CPU_TEMPERATURE=`sensors | grep "CPU" | awk '{print $2}'`
+#CPU_TEMPERATURE=`sensors | grep "CPU" | awk '{print $2}'`
+CPU_TEMPERATURE=`cat /sys/class/thermal/thermal_zone0/temp`
 
 if [[ ${DISK_USEPER}<80 ]]; then
     DISK_ALARM="normal"

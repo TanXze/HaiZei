@@ -118,7 +118,6 @@ void output(LinkedList head, int num) {
     char *client_port = (char *)malloc(sizeof(char) * 5);
     get_conf_value("./piheadlthd.conf", "client_port", client_port);
     while (p) {
-        printf("????????\n");
         printf("%s", inet_ntoa(p->addr.sin_addr));
         fprintf(log1[num], "%s:%s", inet_ntoa(p->addr.sin_addr), client_port);
         if (p->next) {
@@ -210,7 +209,7 @@ void *func(void *argv) {
             sleep(5);
             continue;
         }
-        int sockfd = -1;
+        int sockfd;
         int count = 0, n = 0, length = queue[para->num], ack = 100;
 	    char *connect_port = (char *)malloc(sizeof(char) * 5);
         get_conf_value("./piheadlthd.conf", "connect_port", connect_port);
@@ -243,6 +242,10 @@ void *func(void *argv) {
                     get_conf_value("./piheadlthd.conf", "short_port", short_port);
                     int port = atoi(short_port);
                     short_socket = connect_socket(port, linkedlist[para->num]->addr);
+                    if (short_socket < 0) {
+                        printf("Send File Connect Error!\n");
+                        close(short_socket);
+                    }
                     char buffer[BUFFER_SIZE];
                     bzero(buffer, sizeof(buffer));
                     char pathfile[100];
@@ -266,6 +269,7 @@ void *func(void *argv) {
                         printf("Recv Error!\n");
                     }
                     bzero(filename, sizeof(filename));
+                    close(short_socket);
                     ack -= 1;
                     ack += 100;
                     if (ack == 700) break;
@@ -308,11 +312,10 @@ void *alarm_func(void *argv) {
         bzero(buffer, sizeof(buffer));
         char pathfile[100], filename[50];
         sprintf(filename, "warning.log");
-        sprintf(pathfile, "%s/%s", path, filename);
+        sprintf(pathfile, "%s%s", path, filename);
         FILE *fp = fopen(pathfile, "a+");
         if (NULL == fp) {
             printf("File:\t%s Can Not Open To Write!\n", pathfile);
-			exit(0);
         }
         int length = 0;
         while ((length = recv(sockfd, buffer, BUFFER_SIZE, 0)) > 0) {
@@ -352,11 +355,11 @@ int main() {
         }
     }
 
-	pthread_t alarm_t;
+	/*pthread_t alarm_t;
     if (pthread_create(&alarm_t, NULL, alarm_func, NULL) == -1) {
         printf("Alarm Pthread Created Error\n");
         exit(1);
-    }
+    }*/
 
     while (1) {
         struct sockaddr_in client_addr;
@@ -373,7 +376,7 @@ int main() {
         pthread_mutex_lock(&mutex[min]);
         ret = insert(linkedlist[min], p, queue[min]);
 		queue[min]++;
-        output(linkedlist[min], para->num);
+        //output(linkedlist[min], para->num);
         linkedlist[min] = ret.next;
         pthread_mutex_unlock(&mutex[min]);
         close(sockfd);
@@ -383,9 +386,6 @@ int main() {
     pthread_join(t[2], NULL);
     pthread_join(t[3], NULL);
     pthread_join(t[4], NULL);
-    for (int i = 0; i < INS; i++) {
-        output(linkedlist[i], i);
-    }
     close(server_listen); 
     return 0;
 }

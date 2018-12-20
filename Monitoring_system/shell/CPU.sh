@@ -18,7 +18,8 @@ Total=$[$Total_2-$Total_1]
 CPU_AGE=`echo "scale=1;${IDLE}*100/${Total}" | bc`
 CPU_USEAGE=`echo "scale=1;100-${CPU_AGE}" | bc`
 
-TEMPERATURE=`sensors | grep "CPU" | awk '{print $2}'`
+#TEMPERATURE=`sensors | grep "CPU" | awk '{print $2}'`
+TEMPERATURE=`cat /sys/class/thermal/thermal_zone0/temp`
 
 if [[ ${TEMPERATURE}<50 ]]; then
     CPU_ALARM="normal"

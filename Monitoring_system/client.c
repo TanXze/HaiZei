@@ -76,8 +76,6 @@ void get_filename (int ack, char *filename) {
     }
 }
 
-
-
 void *func(void *argv) {
 	struct mypara *para;
 	para = (struct mypara *) argv;
@@ -95,14 +93,14 @@ void *func(void *argv) {
 				 }break;
 		case 1 : {
 					 n = 3; 
-					 waittime = 60;
+					 waittime = 5;
 					 sprintf(bashFileName[m++], "bash ./shell/Disk.sh");
 					 sprintf(bashFileName[m++], "bash ./shell/System.sh");
 					 sprintf(bashFileName[m++], "bash ./shell/Users.sh");
 				 }break;
 		case 2 : {
 					 n = 1; 
-					 waittime = 30;
+					 waittime = 5;
 					 sprintf(bashFileName[m++], "bash ./shell/Process.sh");
 				 }break;
 		default : printf("Para->num Error!\n"); break;
@@ -188,11 +186,11 @@ int main() {
 		}
 	}
 
-	pthread_t alarm_t;
+	/*pthread_t alarm_t;
     if (pthread_create(&alarm_t, NULL, alarm_func, NULL) == -1) {
         printf("Alarm Pthread Create Error!\n");
         exit(1);
-    }
+    }*/
 
 	char *connect_port = (char *)malloc(sizeof(char) * 5);
     get_conf_value("./piheadlthd.conf", "connect_port", connect_port);
@@ -243,12 +241,13 @@ int main() {
                 if (remove(filename) != 0) {
                     perror("Remove Error");
                 }
-                pthread_mutex_unlock(&mutex[para->num]);
                 close(short_socket);
             }
+            pthread_mutex_unlock(&mutex[para->num]);
             printf("Send File:\t%s Successful!\n", filename);
         }
         close(sock_client);
 	}
+    close(short_socket_listen);
 	close(sock_listen);
 }

@@ -1,1 +1,4 @@
-./a.out 6640 tanxiao+ 100 0.0
+ TTY PID TIME CMD
+ pts/1 9502 00:00:00 a.out
+ pts/1 13858 00:00:00 bash
+ pts/4 17938 00:00:04 Server

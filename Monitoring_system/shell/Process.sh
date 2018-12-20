@@ -24,6 +24,6 @@ do
     done
 done
 
-Process=`cat /home/tanxiaoze/HaiZei/Monitoring_system/shell/txtfile/Process.txt`
+Process=`cat ~/HaiZei/Monitoring_system/shell/txtfile/Process.txt`
 
-echo "$TIME $Process" >> /home/tanxiaoze/HaiZei/Monitoring_system/shell/logfile/Process.log
+echo "$TIME $Process" >> ~/HaiZei/Monitoring_system/shell/logfile/Process.log
