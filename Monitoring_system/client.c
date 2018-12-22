@@ -93,14 +93,14 @@ void *func(void *argv) {
 				 }break;
 		case 1 : {
 					 n = 3; 
-					 waittime = 5;
+					 waittime = 60;
 					 sprintf(bashFileName[m++], "bash ./shell/Disk.sh");
 					 sprintf(bashFileName[m++], "bash ./shell/System.sh");
 					 sprintf(bashFileName[m++], "bash ./shell/Users.sh");
 				 }break;
 		case 2 : {
 					 n = 1; 
-					 waittime = 5;
+					 waittime = 30;
 					 sprintf(bashFileName[m++], "bash ./shell/Process.sh");
 				 }break;
 		default : printf("Para->num Error!\n"); break;
@@ -216,7 +216,12 @@ int main() {
                 ack += 1;
                 send(sock_client, &ack, 4, 0);
                 printf("%s Can Send!\n", filename);
-            }
+            } else {
+				ack = 404;
+				send(sock_client, &ack, 4, 0);
+				printf("%s Can Not Send", filename);
+				continue;
+			}
             if ((short_socket = accept(short_socket_listen, (struct sockaddr *)&master_addr, &len)) < 0) {
                 perror("Accept Error!\n");
                 break;

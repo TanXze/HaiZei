@@ -81,7 +81,7 @@ void init() {
         ret = insert(linkedlist[min], p, queue[min]);
         queue[min]++;
         linkedlist[min] = ret.next;
-        memset(temp, 0, sizeof(temp));
+        bzero(temp, strlen(temp));
     }
     free(temp);
     free(buffer);
@@ -210,76 +210,88 @@ void *func(void *argv) {
             continue;
         }
         int sockfd;
-        int count = 0, n = 0, length = queue[para->num], ack = 100;
+        int count = 0, n = 0, length = queue[para->num], ack = 100, req;
+		Node *p = linkedlist[para->num];
+		Node *q = linkedlist[para->num];
 	    char *connect_port = (char *)malloc(sizeof(char) * 5);
         get_conf_value("./piheadlthd.conf", "connect_port", connect_port);
         int long_port = atoi(connect_port);
         pthread_mutex_lock(&mutex[para->num]);
-	    while (n < length) {
-		    sockfd = connect_socket(long_port, linkedlist[para->num]->addr);
+	    while (q) {
+		    sockfd = connect_socket(long_port, q->addr);
 		    if (sockfd < 0) {
-			    printf("Delete %s\n", inet_ntoa(linkedlist[para->num]->addr.sin_addr));
-			    linkedlist[para->num] = delete_node(linkedlist[para->num], count);
+			    printf("Delete %s\n", inet_ntoa(q->addr.sin_addr));
+				q = q->next;
+			    p = delete_node(p, count);
 			    queue[para->num]--;
+				close(sockfd);
+				continue;
 		    } else {
 			    count++;
-			    printf("%s is Connecting\n", inet_ntoa(linkedlist[para->num]->addr.sin_addr));
+			    printf("%s is Connecting\n", inet_ntoa(q->addr.sin_addr));
                 send(sockfd, &ack, 4, 0);
                 char *filename = (char *)malloc(sizeof(char) * 100);
                 getfilename(ack, filename);
                 char path[50], commond[50];
-                sprintf(path, "./master_logfile/%s", inet_ntoa(linkedlist[para->num]->addr.sin_addr));
+                sprintf(path, "./master_logfile/%s", inet_ntoa(q->addr.sin_addr));
                 strcat(path, "/");
                 sprintf(commond, "mkdir %s", path);
                 if (access(path, 0) != 0) {
                     FILE *fp = popen(commond, "r");
 					pclose(fp);
                 }
-                while (recv(sockfd, &ack, 4, 0) > 0) {
-                    sleep(5);
-                    int short_socket;
-                    char *short_port = (char *)malloc(sizeof(char) * 5);
-                    get_conf_value("./piheadlthd.conf", "short_port", short_port);
-                    int port = atoi(short_port);
-                    short_socket = connect_socket(port, linkedlist[para->num]->addr);
-                    if (short_socket < 0) {
-                        printf("Send File Connect Error!\n");
-                        close(short_socket);
-                    }
-                    char buffer[BUFFER_SIZE];
-                    bzero(buffer, sizeof(buffer));
-                    char pathfile[100];
-                    sprintf(pathfile, "%s%s", path, filename);
-                    FILE *fp = fopen(pathfile, "a+");
-                    if (NULL == fp) {
-                        printf("File:\t%s Can Not Open To Write!\n", pathfile);
-                    }
-                    int length = 0;
-                    while ((length = recv(short_socket, buffer, BUFFER_SIZE, 0)) > 0) {
-                        if (fwrite(buffer, sizeof(char), length, fp) < length) {
-                            printf("Fail:\t%s Write Failed!\n", pathfile);
-                            break;
-                        }
-                        bzero(buffer, sizeof(buffer));
-                    }
-                    fclose(fp);
-                    if (length == 0) {
-                        printf("Receive File To Path :\t%s From Client :\t %s Successfully!\n", pathfile, inet_ntoa(linkedlist[para->num]->addr.sin_addr));
-                    } else if (length < 0) {
-                        printf("Recv Error!\n");
-                    }
-                    bzero(filename, sizeof(filename));
-                    close(short_socket);
-                    ack -= 1;
-                    ack += 100;
-                    if (ack == 700) break;
-                    send(sockfd, &ack, 4, 0);
-                    getfilename(ack, filename);
-                }
+                while (recv(sockfd, &req, 4, 0) > 0) {
+					if (req != 404) {
+                    	sleep(5);
+                    	int short_socket;
+                    	char *short_port = (char *)malloc(sizeof(char) * 5);
+                    	get_conf_value("./piheadlthd.conf", "short_port", short_port);
+                    	int port = atoi(short_port);
+                    	short_socket = connect_socket(port, linkedlist[para->num]->addr);
+                    	if (short_socket < 0) {
+                        	printf("Send File Connect Error!\n");
+                        	close(short_socket);
+                    	}
+                    	char buffer[BUFFER_SIZE];
+                    	bzero(buffer, sizeof(buffer));
+                    	char pathfile[100];
+                    	sprintf(pathfile, "%s%s", path, filename);
+                    	FILE *fp = fopen(pathfile, "a+");
+                    	if (NULL == fp) {
+                        	printf("File:\t%s Can Not Open To Write!\n", pathfile);
+                    	}
+                    	int length = 0;
+                    	while ((length = recv(short_socket, buffer, BUFFER_SIZE, 0)) > 0) {
+                        	if (fwrite(buffer, sizeof(char), length, fp) < length) {
+                            	printf("Fail:\t%s Write Failed!\n", pathfile);
+                            	break;
+                        	}
+                        	bzero(buffer, sizeof(buffer));
+                    	}
+                    	fclose(fp);
+                    	if (length == 0) {
+                        	printf("Receive File To Path :\t%s From Client :\t %s Successfully!\n", pathfile, inet_ntoa(q->addr.sin_addr));
+                    	} else if (length < 0) {
+                        	printf("Recv Error!\n");
+                    	}
+                    	bzero(filename, strlen(filename));
+                    	close(short_socket);
+                    	ack += 100;
+                    	if (ack == 700) break;
+                    	send(sockfd, &ack, 4, 0);
+                    	getfilename(ack, filename);
+                	} else if (req == 404) {
+						ack += 100;
+						if (ack == 700) break;
+						send(sockfd, &ack, 4, 0);
+						getfilename(ack, filename);
+					}
+				}
 		    }
-		    n++;
+		    q = q->next;
 		    close(sockfd);
 	    }
+		linkedlist[para->num] = p;
         output(linkedlist[para->num], para->num);
         pthread_mutex_unlock(&mutex[para->num]);
     }
@@ -335,6 +347,7 @@ void *alarm_func(void *argv) {
         bzero(filename, sizeof(filename));
     }
     close(alarm_socket);
+	return NULL;
 }
 
 int main() {
