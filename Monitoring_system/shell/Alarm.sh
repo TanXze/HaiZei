@@ -8,7 +8,8 @@ User=`whoami`
 Disk_total=`cat ~/HaiZei/Monitoring_system/shell/txtfile/df.txt | awk '{print $1}' | echo $[$(tr '\n' '+')0]`
 Disk_use=`cat ~/HaiZei/Monitoring_system/shell/txtfile/df.txt | awk '{print $2}' | echo $[$(tr '\n' '+')0]`
 Disk_useper=`echo "scale=1;${Disk_use}*100/${Disk_total}" | bc`
-CPU_temperature=`sensors | grep "CPU" | awk '{print $2}'`
+#CPU_temperature=`sensors | grep "CPU" | awk '{print $2}'`
+CPU_temperature=`cat /sys/class/thermal/thermal_zone0/temp`
 MEM_total=`cat ~/HaiZei/Monitoring_system/shell/txtfile/free.txt | awk '{print $2}'`
 MEM_use=`cat ~/HaiZei/Monitoring_system/shell/txtfile/free.txt | awk '{print $3}'`
 MEM_useper=`echo "scale=1;${MEM_use}*100/${MEM_total}" | bc`

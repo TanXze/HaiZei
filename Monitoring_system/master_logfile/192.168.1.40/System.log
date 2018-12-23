@@ -1,172 +1,49 @@
-2018-12-18__20:06 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 3 days, 11 hours, 3 minutes] [0.07,0.09,0.09] 29941M 75.4% 927M 8.4%  normal warning normal
-2018-12-18__20:10 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 3 days, 11 hours, 6 minutes] [0.07,0.11,0.09] 29941M 75.4% 927M 8.4%  normal warning normal
-2018-12-18__20:31 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 3 days, 11 hours, 28 minutes] [0.62,0.24,0.15] 29941M 75.4% 927M 9.0%  normal warning normal
-2018-12-18__20:34 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 3 days, 11 hours, 30 minutes] [0.26,0.22,0.15] 29941M 75.4% 927M 9.1% 46160 normal warning normal
-2018-12-18__20:38 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 3 days, 11 hours, 35 minutes] [0.16,0.15,0.13] 29941M 75.4% 927M 8.8% 47236 normal warning normal
-2018-12-20__18:06 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 9 hours, 3 minutes] [0.05,0.06,0.06] 29941M 75.4% 927M 8.3% 48312 normal warning normal
-2018-12-20__18:07 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 9 hours, 4 minutes] [0.15,0.08,0.06] 29941M 75.4% 927M 8.4% 48312 normal warning normal
-2018-12-20__18:08 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 9 hours, 5 minutes] [0.24,0.11,0.08] 29941M 75.4% 927M 8.1% 48312 normal warning normal
-2018-12-20__18:09 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 9 hours, 6 minutes] [0.35,0.17,0.10] 29941M 75.4% 927M 7.9% 48312 normal note normal
-2018-12-20__18:11 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 9 hours, 8 minutes] [0.09,0.16,0.10] 29941M 75.4% 927M 9.0% 48312 normal warning normal
-2018-12-20__18:12 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 9 hours, 8 minutes] [0.10,0.15,0.10] 29941M 75.4% 927M 9.3% 49388 normal warning normal
-2018-12-20__18:12 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 9 hours, 9 minutes] [0.37,0.20,0.12] 29941M 75.4% 927M 9.4% 49925 normal warning normal
-2018-12-20__18:13 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 9 hours, 9 minutes] [0.22,0.18,0.11] 29941M 75.4% 927M 9.4% 49388 normal warning normal
-2018-12-20__18:14 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 9 hours, 10 minutes] [0.37,0.22,0.13] 29941M 75.4% 927M 9.6% 49925 normal warning normal
-2018-12-20__18:15 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 9 hours, 12 minutes] [0.68,0.32,0.16] 29941M 75.4% 927M 10.0% 49388 normal normal normal
-2018-12-20__18:16 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 9 hours, 13 minutes] [0.34,0.30,0.17] 29941M 75.4% 927M 9.8% 49388 normal warning normal
-2018-12-20__18:17 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 9 hours, 14 minutes] [0.45,0.34,0.19] 29941M 75.4% 927M 9.8% 48312 normal warning normal
-2018-12-20__18:18 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 9 hours, 15 minutes] [0.25,0.29,0.18] 29941M 75.4% 927M 9.8% 48312 normal warning normal
-2018-12-20__18:19 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 9 hours, 16 minutes] [0.09,0.23,0.17] 29941M 75.4% 927M 9.7% 48312 normal warning normal
-2018-12-20__18:20 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 9 hours, 17 minutes] [0.28,0.26,0.18] 29941M 75.4% 927M 9.8% 48312 normal warning normal
-2018-12-20__18:21 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 9 hours, 18 minutes] [0.48,0.32,0.21] 29941M 75.4% 927M 9.8% 48312 normal warning normal
-2018-12-20__18:22 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 9 hours, 19 minutes] [0.22,0.27,0.19] 29941M 75.4% 927M 9.8% 49388 normal warning normal
-2018-12-20__18:23 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 9 hours, 20 minutes] [0.26,0.28,0.20] 29941M 75.4% 927M 9.3% 48312 normal warning normal
-2018-12-20__18:24 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 9 hours, 21 minutes] [0.09,0.23,0.18] 29941M 75.4% 927M 9.6% 48312 normal warning normal
-2018-12-20__18:25 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 9 hours, 22 minutes] [0.17,0.22,0.18] 29941M 75.4% 927M 9.7% 48312 normal warning normal
-2018-12-20__18:26 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 9 hours, 23 minutes] [0.77,0.33,0.22] 29941M 75.4% 927M 8.9% 48312 normal warning normal
-2018-12-20__18:27 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 9 hours, 24 minutes] [0.42,0.32,0.22] 29941M 75.4% 927M 8.9% 48850 normal warning normal
-2018-12-20__18:29 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 9 hours, 25 minutes] [0.20,0.26,0.20] 29941M 75.4% 927M 8.9% 49388 normal warning normal
-2018-12-20__18:30 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 9 hours, 27 minutes] [0.28,0.29,0.22] 29941M 75.4% 927M 8.9% 48850 normal warning normal
-2018-12-20__18:31 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 9 hours, 28 minutes] [0.18,0.25,0.21] 29941M 75.4% 927M 8.9% 49388 normal warning normal
-2018-12-20__18:32 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 9 hours, 29 minutes] [0.29,0.28,0.22] 29941M 75.4% 927M 8.9% 49388 normal warning normal
-2018-12-20__18:33 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 9 hours, 30 minutes] [0.16,0.24,0.21] 29941M 75.4% 927M 9.0% 49388 normal warning normal
-2018-12-20__18:34 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 9 hours, 31 minutes] [0.27,0.29,0.23] 29941M 75.4% 927M 9.6% 48312 normal warning normal
-2018-12-20__18:52 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 9 hours, 49 minutes] [0.04,0.10,0.13] 29941M 75.4% 927M 10.2% 48312 normal normal normal
-2018-12-20__18:53 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 9 hours, 50 minutes] [0.01,0.08,0.12] 29941M 75.4% 927M 10.4% 49388 normal normal normal
-2018-12-20__18:54 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 9 hours, 51 minutes] [0.54,0.17,0.14] 29941M 75.4% 927M 10.2% 48850 normal normal normal
-2018-12-20__18:55 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 9 hours, 52 minutes] [0.35,0.21,0.16] 29941M 75.4% 927M 10.1% 48312 normal normal normal
-2018-12-20__18:56 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 9 hours, 53 minutes] [0.26,0.21,0.17] 29941M 75.4% 927M 10.2% 49388 normal normal normal
-2018-12-20__19:17 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 10 hours, 13 minutes] [0.07,0.06,0.09] 29941M 75.4% 927M 10.2% 49388 normal normal normal
-2018-12-20__20:21 pi6 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 11 hours, 18 minutes] [0.27,0.21,0.17] 29941M 48.2% 927M 9.4% 48312 normal warning normal
-2018-12-20__20:21 pi6 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 11 hours, 18 minutes] [0.25,0.20,0.17] 29941M 48.2% 927M 9.3% 48850 normal warning normal
-2018-12-20__20:21 pi6 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 11 hours, 18 minutes] [0.28,0.21,0.18] 29941M 48.2% 927M 9.3% 49388 normal warning normal
-2018-12-20__20:29 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 11 hours, 26 minutes] [0.22,0.27,0.32] 29941M 75.4% 927M 12.1% 49388 normal normal normal
-2018-12-20__20:29 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 11 hours, 26 minutes] [0.20,0.26,0.32] 29941M 75.4% 927M 12.0% 49388 normal normal normal
-2018-12-20__20:29 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 11 hours, 26 minutes] [0.18,0.26,0.31] 29941M 75.4% 927M 12.1% 49388 normal normal normal
-2018-12-20__20:30 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 11 hours, 26 minutes] [0.31,0.29,0.32] 29941M 75.4% 927M 12.2% 49925 normal normal normal
-2018-12-20__20:30 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 11 hours, 26 minutes] [0.29,0.28,0.32] 29941M 75.4% 927M 12.0% 49925 normal normal normal
-2018-12-20__20:30 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 11 hours, 26 minutes] [0.26,0.28,0.32] 29941M 75.4% 927M 12.0% 49388 normal normal normal
-2018-12-20__20:30 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 11 hours, 26 minutes] [0.24,0.27,0.32] 29941M 75.4% 927M 12.1% 49388 normal normal normal
-2018-12-20__20:30 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 11 hours, 27 minutes] [0.28,0.28,0.32] 29941M 75.4% 927M 12.1% 50464 normal normal note
-2018-12-20__20:30 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 11 hours, 27 minutes] [0.25,0.27,0.32] 29941M 75.4% 927M 12.2% 50464 normal normal note
-2018-12-20__20:30 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 11 hours, 27 minutes] [0.39,0.30,0.33] 29941M 75.4% 927M 12.1% 49388 normal normal normal
-2018-12-20__20:30 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 11 hours, 27 minutes] [0.41,0.31,0.33] 29941M 75.4% 927M 12.0% 49925 normal normal normal
-2018-12-20__20:30 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 11 hours, 27 minutes] [0.38,0.30,0.33] 29941M 75.4% 927M 12.1% 50464 normal normal note
-2018-12-20__20:31 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 11 hours, 27 minutes] [0.35,0.30,0.32] 29941M 75.4% 927M 12.0% 49925 normal normal normal
-2018-12-20__20:31 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 11 hours, 27 minutes] [0.51,0.34,0.34] 29941M 75.4% 927M 12.1% 50464 normal normal note
-2018-12-20__20:31 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 11 hours, 27 minutes] [0.47,0.33,0.33] 29941M 75.4% 927M 12.1% 50464 normal normal note
-2018-12-20__20:31 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 11 hours, 27 minutes] [0.43,0.32,0.33] 29941M 75.4% 927M 12.0% 50464 normal normal note
-2018-12-20__20:31 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 11 hours, 28 minutes] [0.67,0.38,0.35] 29941M 75.4% 927M 12.1% 49925 normal normal normal
-2018-12-20__20:31 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 11 hours, 28 minutes] [0.70,0.39,0.35] 29941M 75.4% 927M 12.0% 50464 normal normal note
-2018-12-20__20:31 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 11 hours, 28 minutes] [0.64,0.38,0.35] 29941M 75.4% 927M 12.0% 50464 normal normal note
-2018-12-20__20:31 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 11 hours, 28 minutes] [0.61,0.39,0.35] 29941M 75.4% 927M 12.1% 50464 normal normal note
-2018-12-20__20:31 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 11 hours, 28 minutes] [0.57,0.38,0.35] 29941M 75.4% 927M 12.1% 50464 normal normal note
-2018-12-20__20:32 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 11 hours, 28 minutes] [0.52,0.37,0.35] 29941M 75.4% 927M 12.0% 50464 normal normal note
-2018-12-20__20:32 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 11 hours, 28 minutes] [0.59,0.39,0.36] 29941M 75.4% 927M 12.0% 50464 normal normal note
-2018-12-20__20:32 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 11 hours, 28 minutes] [0.70,0.42,0.37] 29941M 75.4% 927M 12.0% 50464 normal normal note
-2018-12-20__20:32 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 11 hours, 28 minutes] [0.72,0.43,0.37] 29941M 75.4% 927M 12.1% 49925 normal normal normal
-2018-12-20__20:32 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 11 hours, 29 minutes] [0.69,0.43,0.37] 29941M 75.4% 927M 12.0% 50464 normal normal note
-2018-12-20__20:32 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 11 hours, 29 minutes] [0.63,0.43,0.37] 29941M 75.4% 927M 12.1% 50464 normal normal note
-2018-12-20__20:32 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 11 hours, 29 minutes] [0.58,0.42,0.37] 29941M 75.4% 927M 12.0% 50464 normal normal note
-2018-12-20__20:32 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 11 hours, 29 minutes] [0.65,0.44,0.37] 29941M 75.4% 927M 12.0% 51002 normal normal note
-2018-12-20__20:32 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 11 hours, 29 minutes] [0.59,0.43,0.37] 29941M 75.4% 927M 12.1% 50464 normal normal note
-2018-12-20__20:33 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 11 hours, 29 minutes] [0.79,0.47,0.39] 29941M 75.4% 927M 12.0% 50464 normal normal note
-2018-12-20__20:33 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 11 hours, 29 minutes] [0.80,0.48,0.39] 29941M 75.4% 927M 12.0% 49925 normal normal normal
-2018-12-20__20:33 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 11 hours, 29 minutes] [0.91,0.52,0.40] 29941M 75.4% 927M 12.0% 49925 normal normal normal
-2018-12-20__20:33 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 11 hours, 29 minutes] [0.84,0.51,0.40] 29941M 75.4% 927M 12.1% 50464 normal normal note
-2018-12-20__20:33 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 11 hours, 30 minutes] [0.77,0.50,0.40] 29941M 75.4% 927M 12.0% 51002 normal normal note
-2018-12-20__20:33 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 11 hours, 30 minutes] [0.73,0.50,0.40] 29941M 75.4% 927M 12.1% 50464 normal normal note
-2018-12-20__20:33 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 11 hours, 30 minutes] [0.67,0.49,0.39] 29941M 75.4% 927M 12.1% 50464 normal normal note
-2018-12-20__20:33 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 11 hours, 30 minutes] [0.62,0.48,0.39] 29941M 75.4% 927M 12.0% 49925 normal normal normal
-2018-12-20__20:33 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 11 hours, 30 minutes] [0.60,0.48,0.39] 29941M 75.4% 927M 12.1% 50464 normal normal note
-2018-12-20__20:34 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 11 hours, 30 minutes] [0.55,0.47,0.39] 29941M 75.4% 927M 12.0% 50464 normal normal note
-2018-12-20__20:34 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 11 hours, 30 minutes] [0.50,0.47,0.39] 29941M 75.4% 927M 12.1% 50464 normal normal note
-2018-12-20__20:34 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 11 hours, 30 minutes] [0.90,0.55,0.42] 29941M 75.4% 927M 12.0% 50464 normal normal note
-2018-12-20__20:34 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 11 hours, 30 minutes] [0.83,0.54,0.41] 29941M 75.4% 927M 12.1% 50464 normal normal note
-2018-12-20__20:34 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 11 hours, 31 minutes] [0.76,0.53,0.41] 29941M 75.4% 927M 12.0% 49388 normal normal normal
-2018-12-20__20:34 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 11 hours, 31 minutes] [0.80,0.55,0.42] 29941M 75.4% 927M 12.1% 50464 normal normal note
-2018-12-20__20:34 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 11 hours, 31 minutes] [0.73,0.54,0.42] 29941M 75.4% 927M 12.1% 50464 normal normal note
-2018-12-20__20:34 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 11 hours, 31 minutes] [0.68,0.53,0.41] 29941M 75.4% 927M 12.1% 50464 normal normal note
-2018-12-20__20:34 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 11 hours, 31 minutes] [0.87,0.58,0.43] 29941M 75.4% 927M 12.1% 50464 normal normal note
-2018-12-20__20:35 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 11 hours, 31 minutes] [0.80,0.57,0.43] 29941M 75.4% 927M 12.0% 50464 normal normal note
-2018-12-20__20:35 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 11 hours, 31 minutes] [0.74,0.56,0.43] 29941M 75.4% 927M 12.0% 50464 normal normal note
-2018-12-20__20:35 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 11 hours, 31 minutes] [0.70,0.56,0.43] 29941M 75.4% 927M 12.1% 50464 normal normal note
-2018-12-20__20:35 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 11 hours, 31 minutes] [0.64,0.55,0.43] 29941M 75.4% 927M 12.0% 49925 normal normal normal
-2018-12-20__20:35 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 11 hours, 32 minutes] [0.59,0.54,0.42] 29941M 75.4% 927M 12.0% 50464 normal normal note
-2018-12-20__20:35 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 11 hours, 32 minutes] [0.65,0.55,0.43] 29941M 75.4% 927M 12.1% 50464 normal normal note
-2018-12-20__20:35 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 11 hours, 32 minutes] [0.59,0.54,0.43] 29941M 75.4% 927M 12.0% 49925 normal normal normal
-2018-12-20__20:35 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 11 hours, 32 minutes] [0.55,0.53,0.42] 29941M 75.4% 927M 12.1% 50464 normal normal note
-2018-12-20__20:35 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 11 hours, 32 minutes] [0.62,0.55,0.43] 29941M 75.4% 927M 12.1% 50464 normal normal note
-2018-12-20__20:36 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 11 hours, 32 minutes] [0.57,0.54,0.43] 29941M 75.4% 927M 12.0% 50464 normal normal note
-2018-12-20__20:36 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 11 hours, 32 minutes] [0.53,0.53,0.43] 29941M 75.4% 927M 12.0% 50464 normal normal note
-2018-12-20__20:36 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 11 hours, 32 minutes] [0.48,0.52,0.42] 29941M 75.4% 927M 12.1% 50464 normal normal note
-2018-12-20__20:36 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 11 hours, 32 minutes] [0.48,0.52,0.42] 29941M 75.4% 927M 12.0% 51002 normal normal note
-2018-12-20__20:36 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 11 hours, 33 minutes] [0.44,0.51,0.42] 29941M 75.4% 927M 12.2% 50464 normal normal note
-2018-12-20__20:36 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 11 hours, 33 minutes] [0.41,0.50,0.42] 29941M 75.4% 927M 12.0% 49925 normal normal normal
-2018-12-20__20:36 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 11 hours, 33 minutes] [0.42,0.50,0.42] 29941M 75.4% 927M 12.0% 50464 normal normal note
-2018-12-20__20:36 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 11 hours, 33 minutes] [0.39,0.49,0.42] 29941M 75.4% 927M 12.0% 51002 normal normal note
-2018-12-20__20:36 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 11 hours, 33 minutes] [0.35,0.49,0.42] 29941M 75.4% 927M 12.0% 50464 normal normal note
-2018-12-20__20:36 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 11 hours, 33 minutes] [0.45,0.50,0.42] 29941M 75.4% 927M 12.0% 50464 normal normal note
-2018-12-20__20:37 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 11 hours, 33 minutes] [0.42,0.49,0.42] 29941M 75.4% 927M 12.0% 49925 normal normal normal
-2018-12-20__20:37 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 11 hours, 33 minutes] [0.38,0.49,0.42] 29941M 75.4% 927M 12.0% 50464 normal normal note
-2018-12-20__20:37 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 11 hours, 33 minutes] [0.40,0.49,0.42] 29941M 75.4% 927M 12.0% 50464 normal normal note
-2018-12-20__20:37 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 11 hours, 34 minutes] [0.37,0.48,0.42] 29941M 75.4% 927M 12.0% 50464 normal normal note
-2018-12-20__20:37 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 11 hours, 34 minutes] [0.34,0.47,0.41] 29941M 75.4% 927M 11.9% 50464 normal normal note
-2018-12-20__20:37 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 11 hours, 34 minutes] [0.36,0.47,0.41] 29941M 75.4% 927M 12.1% 49925 normal normal normal
-2018-12-20__20:37 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 11 hours, 34 minutes] [0.33,0.46,0.41] 29941M 75.4% 927M 12.0% 50464 normal normal note
-2018-12-20__20:37 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 11 hours, 34 minutes] [0.30,0.45,0.41] 29941M 75.4% 927M 12.0% 50464 normal normal note
-2018-12-20__20:37 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 11 hours, 34 minutes] [0.40,0.47,0.42] 29941M 75.4% 927M 12.0% 50464 normal normal note
-2018-12-20__20:38 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 11 hours, 34 minutes] [0.37,0.46,0.41] 29941M 75.4% 927M 12.0% 50464 normal normal note
-2018-12-20__20:38 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 11 hours, 34 minutes] [0.34,0.46,0.41] 29941M 75.4% 927M 12.0% 51002 normal normal note
-2018-12-20__20:38 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 11 hours, 34 minutes] [0.36,0.46,0.41] 29941M 75.4% 927M 12.1% 50464 normal normal note
-2018-12-20__20:38 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 11 hours, 35 minutes] [0.33,0.45,0.41] 29941M 75.4% 927M 12.0% 50464 normal normal note
-2018-12-20__20:38 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 11 hours, 35 minutes] [0.31,0.44,0.41] 29941M 75.4% 927M 12.0% 50464 normal normal note
-2018-12-20__20:38 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 11 hours, 35 minutes] [0.33,0.44,0.41] 29941M 75.4% 927M 12.0% 50464 normal normal note
-2018-12-20__20:38 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 11 hours, 35 minutes] [0.31,0.44,0.41] 29941M 75.4% 927M 12.1% 50464 normal normal note
-2018-12-20__20:38 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 11 hours, 35 minutes] [0.44,0.46,0.41] 29941M 75.4% 927M 12.0% 50464 normal normal note
-2018-12-20__20:38 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 11 hours, 35 minutes] [0.68,0.51,0.43] 29941M 75.4% 927M 12.1% 50464 normal normal note
-2018-12-20__20:39 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 11 hours, 35 minutes] [0.62,0.50,0.43] 29941M 75.4% 927M 12.0% 50464 normal normal note
-2018-12-20__20:39 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 11 hours, 35 minutes] [0.57,0.50,0.43] 29941M 75.4% 927M 12.0% 51540 normal normal note
-2018-12-20__20:39 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 11 hours, 35 minutes] [0.53,0.49,0.42] 29941M 75.4% 927M 12.0% 50464 normal normal note
-2018-12-20__20:39 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 11 hours, 36 minutes] [0.67,0.52,0.44] 29941M 75.4% 927M 12.0% 50464 normal normal note
-2018-12-20__20:39 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 11 hours, 36 minutes] [0.61,0.51,0.43] 29941M 75.4% 927M 12.0% 50464 normal normal note
-2018-12-20__20:39 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 11 hours, 36 minutes] [0.56,0.50,0.43] 29941M 75.4% 927M 12.1% 51002 normal normal note
-2018-12-20__20:39 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 11 hours, 36 minutes] [0.63,0.52,0.44] 29941M 75.4% 927M 12.0% 51002 normal normal note
-2018-12-20__20:39 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 11 hours, 36 minutes] [0.58,0.51,0.44] 29941M 75.4% 927M 12.0% 50464 normal normal note
-2018-12-20__20:39 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 11 hours, 36 minutes] [0.57,0.51,0.44] 29941M 75.4% 927M 12.1% 50464 normal normal note
-2018-12-20__20:40 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 11 hours, 36 minutes] [0.60,0.52,0.44] 29941M 75.4% 927M 12.0% 51002 normal normal note
-2018-12-20__20:40 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 11 hours, 36 minutes] [0.64,0.53,0.44] 29941M 75.4% 927M 12.1% 50464 normal normal note
-2018-12-20__20:40 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 11 hours, 36 minutes] [0.59,0.52,0.44] 29941M 75.4% 927M 12.0% 50464 normal normal note
-2018-12-20__20:40 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 11 hours, 37 minutes] [0.57,0.52,0.44] 29941M 75.4% 927M 12.1% 50464 normal normal note
-2018-12-20__20:40 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 11 hours, 37 minutes] [0.52,0.51,0.44] 29941M 75.4% 927M 12.1% 50464 normal normal note
-2018-12-20__20:40 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 11 hours, 37 minutes] [0.48,0.50,0.44] 29941M 75.4% 927M 12.0% 51002 normal normal note
-2018-12-20__20:40 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 11 hours, 37 minutes] [0.48,0.50,0.44] 29941M 75.4% 927M 12.0% 51002 normal normal note
-2018-12-20__20:40 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 11 hours, 37 minutes] [0.44,0.49,0.44] 29941M 75.4% 927M 12.1% 50464 normal normal note
-2018-12-20__20:40 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 11 hours, 37 minutes] [0.41,0.48,0.43] 29941M 75.4% 927M 12.0% 50464 normal normal note
-2018-12-20__20:41 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 11 hours, 37 minutes] [0.73,0.55,0.46] 29941M 75.4% 927M 12.0% 50464 normal normal note
-2018-12-20__20:41 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 11 hours, 38 minutes] [2.35,0.92,0.58] 29941M 75.4% 927M 12.1% 50464 normal normal note
-2018-12-20__20:41 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 11 hours, 38 minutes] [2.07,0.91,0.58] 29941M 75.4% 927M 12.1% 51002 normal normal note
-2018-12-20__20:41 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 11 hours, 38 minutes] [1.90,0.89,0.58] 29941M 75.4% 927M 12.1% 50464 normal normal note
-2018-12-20__20:41 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 11 hours, 38 minutes] [1.75,0.88,0.57] 29941M 75.4% 927M 12.1% 50464 normal normal note
-2018-12-20__20:41 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 11 hours, 38 minutes] [1.55,0.87,0.57] 29941M 75.4% 927M 12.0% 50464 normal normal note
-2018-12-20__20:42 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 11 hours, 38 minutes] [1.43,0.85,0.57] 29941M 75.4% 927M 12.0% 49925 normal normal normal
-2018-12-20__20:42 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 11 hours, 38 minutes] [1.31,0.84,0.57] 29941M 75.4% 927M 12.0% 51002 normal normal note
-2018-12-20__20:42 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 11 hours, 38 minutes] [1.37,0.86,0.57] 29941M 75.4% 927M 12.1% 51540 normal normal note
-2018-12-20__20:42 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 11 hours, 38 minutes] [1.23,0.84,0.57] 29941M 75.4% 927M 12.2% 51002 normal normal note
-2018-12-20__20:42 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 11 hours, 39 minutes] [1.13,0.83,0.57] 29941M 75.4% 927M 12.1% 50464 normal normal note
-2018-12-20__20:42 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 11 hours, 39 minutes] [1.04,0.82,0.57] 29941M 75.4% 927M 12.0% 49925 normal normal normal
-2018-12-20__20:42 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 11 hours, 39 minutes] [1.03,0.82,0.57] 29941M 75.4% 927M 12.0% 51540 normal normal note
-2018-12-20__20:42 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 11 hours, 39 minutes] [1.03,0.83,0.57] 29941M 75.4% 927M 12.0% 51540 normal normal note
-2018-12-20__20:42 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 11 hours, 39 minutes] [0.94,0.81,0.57] 29941M 75.4% 927M 12.2% 51002 normal normal note
-2018-12-20__20:43 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 11 hours, 39 minutes] [0.95,0.82,0.57] 29941M 75.4% 927M 12.0% 50464 normal normal note
-2018-12-20__20:43 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 11 hours, 39 minutes] [0.88,0.80,0.57] 29941M 75.4% 927M 12.1% 51002 normal normal note
-2018-12-20__20:43 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 11 hours, 39 minutes] [1.13,0.86,0.59] 29941M 75.4% 927M 12.0% 50464 normal normal note
-2018-12-20__20:43 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 11 hours, 39 minutes] [1.10,0.86,0.59] 29941M 75.4% 927M 12.0% 51002 normal normal note
-2018-12-20__20:43 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 11 hours, 40 minutes] [1.01,0.85,0.59] 29941M 75.4% 927M 12.1% 51540 normal normal note
-2018-12-20__20:43 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 11 hours, 40 minutes] [1.41,0.93,0.62] 29941M 75.4% 927M 12.0% 50464 normal normal note
-2018-12-20__20:43 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 11 hours, 40 minutes] [1.27,0.92,0.62] 29941M 75.4% 927M 12.1% 50464 normal normal note
-2018-12-20__20:43 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 11 hours, 40 minutes] [1.17,0.90,0.61] 29941M 75.4% 927M 12.0% 50464 normal normal note
-2018-12-20__20:43 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 11 hours, 40 minutes] [1.07,0.89,0.61] 29941M 75.4% 927M 12.1% 50464 normal normal note
-2018-12-20__20:44 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 11 hours, 40 minutes] [0.98,0.87,0.61] 29941M 75.4% 927M 12.1% 50464 normal normal note
-2018-12-20__20:44 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 11 hours, 40 minutes] [0.90,0.86,0.61] 29941M 75.4% 927M 12.0% 50464 normal normal note
-2018-12-20__20:44 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 2 weeks, 5 days, 11 hours, 40 minutes] [0.83,0.85,0.60] 29941M 75.4% 927M 12.1% 50464 normal normal note
+2018-12-23__14:48 tanxiaoze-Inspiron-7559 GNU/Linux [#45-Ubuntu SMP Thu Nov 15 19:32:57 UTC 2018] [up 1 week, 5 hours, 44 minutes] [1.42,0.89,0.73] 41514M 41.3% 7843M 28.9% 27800 normal normal normal
+2018-12-23__14:49 tanxiaoze-Inspiron-7559 GNU/Linux [#45-Ubuntu SMP Thu Nov 15 19:32:57 UTC 2018] [up 1 week, 5 hours, 45 minutes] [2.52,1.29,0.88] 41514M 41.3% 7843M 28.6% 27800 normal normal normal
+2018-12-23__14:50 tanxiaoze-Inspiron-7559 GNU/Linux [#45-Ubuntu SMP Thu Nov 15 19:32:57 UTC 2018] [up 1 week, 5 hours, 46 minutes] [2.33,1.49,0.98] 41514M 41.3% 7843M 28.6% 27800 normal normal normal
+2018-12-23__14:51 tanxiaoze-Inspiron-7559 GNU/Linux [#45-Ubuntu SMP Thu Nov 15 19:32:57 UTC 2018] [up 1 week, 5 hours, 47 minutes] [2.45,1.69,1.08] 41514M 41.3% 7843M 28.6% 27800 normal normal normal
+2018-12-23__14:52 tanxiaoze-Inspiron-7559 GNU/Linux [#45-Ubuntu SMP Thu Nov 15 19:32:57 UTC 2018] [up 1 week, 5 hours, 48 minutes] [2.00,1.69,1.12] 41514M 41.3% 7843M 28.6% 27800 normal normal normal
+2018-12-23__14:53 tanxiaoze-Inspiron-7559 GNU/Linux [#45-Ubuntu SMP Thu Nov 15 19:32:57 UTC 2018] [up 1 week, 5 hours, 49 minutes] [1.61,1.67,1.15] 41514M 41.3% 7843M 28.6% 27800 normal normal normal
+2018-12-23__14:54 tanxiaoze-Inspiron-7559 GNU/Linux [#45-Ubuntu SMP Thu Nov 15 19:32:57 UTC 2018] [up 1 week, 5 hours, 50 minutes] [1.71,1.66,1.18] 41514M 41.3% 7843M 28.7% 27800 normal normal normal
+2018-12-23__14:55 tanxiaoze-Inspiron-7559 GNU/Linux [#45-Ubuntu SMP Thu Nov 15 19:32:57 UTC 2018] [up 1 week, 5 hours, 51 minutes] [2.16,1.80,1.26] 41514M 41.3% 7843M 28.7% 27800 normal normal normal
+2018-12-23__15:15 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 33 minutes] [0.17,0.14,0.16] 29941M 75.4% 927M 9.6% 50464 normal warning note
+2018-12-23__15:16 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 34 minutes] [0.14,0.13,0.16] 29941M 75.4% 927M 9.4% 50464 normal warning note
+2018-12-23__15:17 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 35 minutes] [0.38,0.20,0.18] 29941M 75.4% 927M 9.3% 49388 normal warning normal
+2018-12-23__15:18 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 37 minutes] [0.14,0.16,0.16] 29941M 75.4% 927M 10.2% 49925 normal normal normal
+2018-12-23__15:19 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 38 minutes] [0.62,0.27,0.20] 29941M 75.4% 927M 10.7% 51540 normal normal note
+2018-12-23__15:20 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 39 minutes] [0.35,0.25,0.20] 29941M 75.4% 927M 10.3% 50464 normal normal note
+2018-12-23__15:21 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 40 minutes] [0.36,0.27,0.20] 29941M 75.4% 927M 10.4% 50464 normal normal note
+2018-12-23__15:22 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 41 minutes] [0.37,0.29,0.21] 29941M 75.4% 927M 10.5% 49925 normal normal normal
+2018-12-23__15:23 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 42 minutes] [0.17,0.25,0.20] 29941M 75.4% 927M 10.6% 49925 normal normal normal
+2018-12-23__15:24 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 43 minutes] [0.38,0.28,0.21] 29941M 75.4% 927M 11.1% 52078 normal normal note
+2018-12-23__15:25 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 44 minutes] [0.61,0.38,0.25] 29941M 75.4% 927M 11.5% 50464 normal normal note
+2018-12-23__15:26 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 45 minutes] [0.53,0.40,0.26] 29941M 75.4% 927M 11.4% 51540 normal normal note
+2018-12-23__15:27 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 46 minutes] [1.12,0.60,0.35] 29941M 75.4% 927M 11.7% 52615 normal normal note
+2018-12-23__15:28 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 47 minutes] [0.74,0.59,0.36] 29941M 75.4% 927M 11.6% 52615 normal normal note
+2018-12-23__15:29 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 48 minutes] [0.39,0.52,0.35] 29941M 75.4% 927M 10.8% 50464 normal normal note
+2018-12-23__15:30 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 49 minutes] [0.16,0.43,0.33] 29941M 75.4% 927M 11.2% 50464 normal normal note
+2018-12-23__15:31 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 50 minutes] [0.28,0.40,0.32] 29941M 75.4% 927M 11.6% 50464 normal normal note
+2018-12-23__15:32 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 51 minutes] [0.50,0.46,0.35] 29941M 75.4% 927M 11.6% 50464 normal normal note
+2018-12-23__15:33 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 52 minutes] [0.43,0.43,0.35] 29941M 75.4% 927M 11.2% 50464 normal normal note
+2018-12-23__15:34 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 53 minutes] [0.38,0.42,0.35] 29941M 75.4% 927M 11.2% 49925 normal normal normal
+2018-12-23__15:35 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 54 minutes] [0.30,0.39,0.34] 29941M 75.4% 927M 10.7% 51540 normal normal note
+2018-12-23__15:36 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 55 minutes] [0.29,0.36,0.34] 29941M 75.4% 927M 11.1% 49388 normal normal normal
+2018-12-23__15:37 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 56 minutes] [0.14,0.31,0.32] 29941M 75.4% 927M 11.1% 49925 normal normal normal
+2018-12-23__15:38 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 57 minutes] [0.45,0.37,0.34] 29941M 75.4% 927M 10.7% 49925 normal normal normal
+2018-12-23__15:39 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 58 minutes] [0.60,0.41,0.36] 29941M 75.4% 927M 11.6% 49925 normal normal normal
+2018-12-23__15:40 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 59 minutes] [0.33,0.39,0.35] 29941M 75.4% 927M 11.2% 49388 normal normal normal
+2018-12-23__15:41 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 1 hour] [0.65,0.45,0.38] 29941M 75.4% 927M 12.4% 49925 normal normal normal
+2018-12-23__15:42 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 1 hour, 1 minute] [0.38,0.41,0.36] 29941M 75.4% 927M 12.8% 50464 normal normal note
+2018-12-23__15:43 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 1 hour, 2 minutes] [1.02,0.60,0.43] 29941M 75.4% 927M 12.6% 50464 normal normal note
+2018-12-23__15:44 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 1 hour, 3 minutes] [0.58,0.55,0.43] 29941M 75.4% 927M 12.0% 49925 normal normal normal
+2018-12-23__15:45 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 1 hour, 4 minutes] [0.34,0.49,0.41] 29941M 75.4% 927M 12.1% 49925 normal normal normal
+2018-12-23__15:46 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 1 hour, 5 minutes] [0.36,0.47,0.41] 29941M 75.4% 927M 12.9% 51002 normal normal note
+2018-12-23__15:47 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 1 hour, 6 minutes] [0.49,0.49,0.42] 29941M 75.4% 927M 13.1% 51540 normal normal note
+2018-12-23__15:48 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 1 hour, 7 minutes] [0.53,0.48,0.42] 29941M 75.4% 927M 13.3% 50464 normal normal note
+2018-12-23__15:49 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 1 hour, 8 minutes] [0.37,0.45,0.42] 29941M 75.4% 927M 13.7% 50464 normal normal note
+2018-12-23__15:50 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 1 hour, 9 minutes] [0.40,0.45,0.42] 29941M 75.4% 927M 13.7% 50464 normal normal note
+2018-12-23__15:51 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 1 hour, 10 minutes] [0.68,0.51,0.44] 29941M 75.4% 927M 14.0% 52078 normal normal note
+2018-12-23__15:52 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 1 hour, 11 minutes] [0.88,0.62,0.49] 29941M 75.4% 927M 13.7% 51002 normal normal note
+2018-12-23__15:53 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 1 hour, 12 minutes] [0.87,0.70,0.52] 29941M 75.4% 927M 13.7% 51540 normal normal note
+2018-12-23__15:55 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 1 hour, 13 minutes] [0.55,0.64,0.52] 29941M 75.4% 927M 14.2% 51540 normal normal note
+2018-12-23__15:56 pi1 GNU/Linux [#1023 SMP Tue Aug 8 16:00:15 BST 2017] [up 1 hour, 14 minutes] [1.61,0.93,0.62] 29941M 75.4% 927M 14.1% 52615 normal normal note

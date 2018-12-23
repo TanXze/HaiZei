@@ -1,6 +1,12 @@
 #include "head.h"
 #include "get_conf_value.c"
 
+#ifdef DEBUG
+#define DBGprint(...) printf(__VA_ARGS__)
+#else
+#define DBGprint(...)
+#endif
+
 #define BUFFER_SIZE 1024
 #define FILE_SIZE 512
 #define INS 3
@@ -16,14 +22,14 @@ int connect_socket(char *host, char *port) {
     int sockfd;
     struct sockaddr_in dest_addr;
     if ((sockfd = socket(AF_INET, SOCK_STREAM, 0)) < 0) {
-        perror("Socket Error");
+        DBGprint("Socket Error");
         return -1;
     }
     dest_addr.sin_family = AF_INET;
     dest_addr.sin_port = htons(atoi(port));
     dest_addr.sin_addr.s_addr = inet_addr(host);
     if (connect(sockfd, (struct sockaddr * )&dest_addr, sizeof(dest_addr))) {
-        perror("Connect Error");
+        DBGprint("Connect Error");
         return -1;
     }
     return sockfd;
@@ -33,18 +39,18 @@ int socket_listen(char *port) {
     int sockfd;
     struct sockaddr_in sock_addr;
     if ((sockfd = socket(AF_INET, SOCK_STREAM, 0)) < 0) {
-        perror("Socket Error");
+        DBGprint("Socket Error");
         return -1;
     }
     sock_addr.sin_family = AF_INET;
     sock_addr.sin_port = atoi(port);
     sock_addr.sin_addr.s_addr = htonl(INADDR_ANY);
     if ((bind(sockfd, (struct sockaddr *)&sock_addr, sizeof(struct sockaddr))) < 0) {
-        perror("Bind Error");
+        DBGprint("Bind Error");
         return -1;
     }
     if (listen(sockfd, 20) < 0) {
-        perror("Listen Error");
+        DBGprint("Listen Error");
         return -1;
     }
     return sockfd;
@@ -71,7 +77,7 @@ void get_filename (int ack, char *filename) {
             sprintf(filename, "./shell/logfile/Process.log");
         } break;
         default : {
-            printf("Ack Error!\n"); break;
+            DBGprint("Ack Error!\n"); break;
         }
     }
 }
@@ -103,7 +109,7 @@ void *func(void *argv) {
 					 waittime = 30;
 					 sprintf(bashFileName[m++], "bash ./shell/Process.sh");
 				 }break;
-		default : printf("Para->num Error!\n"); break;
+		default : DBGprint("Para->num Error!\n"); break;
 	}
 	FILE *fp;
 	while (1) {
@@ -136,32 +142,38 @@ void *alarm_func(void *argv) {
 	        char *alarm_port = (char *)malloc(sizeof(char) * 5);
             get_conf_value("./piheadlthd.conf", "client_port", alarm_port);
             if ((alarm_socket = connect_socket(master_host, alarm_port)) < 0) {
-                perror("Connect Error");
+                DBGprint("Connect Error");
                 return NULL;
             }
-            printf("Alarm Connect Success!\n");
+            DBGprint("Alarm Connect Success!\n");
             char buffer[BUFFER_SIZE];
             bzero(buffer, sizeof(buffer));
             while (!feof(fd)) {
                 int num_fread = fread(buffer, 4, 1, fd);
                 if (num_fread < 0) {
-                    perror("Fread Alarm Error");
+                    DBGprint("Fread Alarm Error");
                 }
                 int x = send(alarm_socket, buffer, num_fread, 0);
                 bzero(buffer, sizeof(buffer));
             }
             fclose(fd);
             if (remove(filename) != 0) {
-                perror("Remove Error");
+                DBGprint("Remove Error");
             }
             close(alarm_socket);
-    	    printf("Warning Send Success!\n");
+    	    DBGprint("Warning Send Success!\n");
         }
     }
     return NULL;
 }
 
 int main() {
+    pid_t id = fork();
+    if (id < 0) {
+        perror("fork()");
+    } else if (id > 0) {
+        exit(0);
+    }
     int sock_client;
     struct sockaddr_in dest_addr;
 	char *master_host = (char *)malloc(sizeof(char) * 20);
@@ -169,10 +181,10 @@ int main() {
 	char *client_port = (char *)malloc(sizeof(char) * 5);
     get_conf_value("./piheadlthd.conf", "client_port", client_port);
     if ((sock_client = connect_socket(master_host, client_port)) < 0) {
-        perror("Connect Error");
+        DBGprint("Connect Error");
         return -1;
     }
-    printf("Connect Master Success!\n");
+    DBGprint("Connect Master Success!\n");
 	close(sock_client);
 
 	pthread_t t[INS + 1];
@@ -181,16 +193,16 @@ int main() {
 		para[i].s = "Check";
 		para[i].num = i;
 		if (pthread_create(&t[i], NULL, func, (void *)&para[i]) == -1) {
-			printf("Pthread Create Error!\n");
+			DBGprint("Pthread Create Error!\n");
 			exit(1);
 		}
 	}
 
-	/*pthread_t alarm_t;
+	pthread_t alarm_t;
     if (pthread_create(&alarm_t, NULL, alarm_func, NULL) == -1) {
-        printf("Alarm Pthread Create Error!\n");
+        DBGprint("Alarm Pthread Create Error!\n");
         exit(1);
-    }*/
+    }
 
 	char *connect_port = (char *)malloc(sizeof(char) * 5);
     get_conf_value("./piheadlthd.conf", "connect_port", connect_port);
@@ -203,10 +215,10 @@ int main() {
 		struct sockaddr_in master_addr;
         socklen_t len = sizeof(master_addr);
         if ((sock_client= accept(sock_listen, (struct sockaddr *)&master_addr, &len)) < 0) {
-            perror("Accept Error!");
+            DBGprint("Accept Error!");
             break;
         }
-		printf("Master Connect Success!\n");
+		DBGprint("Master Connect Success!\n");
         FILE *fp;
         char *filename = (char *)malloc(sizeof(char) * 100);
         while (recv(sock_client, &ack, 4, 0) > 0) {
@@ -215,28 +227,28 @@ int main() {
             if (access(filename, 0) == 0) {
                 ack += 1;
                 send(sock_client, &ack, 4, 0);
-                printf("%s Can Send!\n", filename);
+                DBGprint("%s Can Send!\n", filename);
             } else {
 				ack = 404;
 				send(sock_client, &ack, 4, 0);
-				printf("%s Can Not Send", filename);
+				DBGprint("%s Can Not Send!\n", filename);
 				continue;
 			}
             if ((short_socket = accept(short_socket_listen, (struct sockaddr *)&master_addr, &len)) < 0) {
-                perror("Accept Error!\n");
+                DBGprint("Accept Error!\n");
                 break;
             }
             pthread_mutex_lock(&mutex[para->num]);
             FILE *fp = fopen(filename, "r");
             char buffer[BUFFER_SIZE];
             if (NULL == fp) {
-                printf("File: %s Not Found!\n", filename);
+                DBGprint("File: %s Not Found!\n", filename);
             } else {
                 bzero(buffer, sizeof(buffer));
                 while (!feof(fp)) {
                     int num_fread = fread(buffer, sizeof(char), 1, fp);
                     if (num_fread < 0) {
-                        perror("Fread Error");
+                        DBGprint("Fread Error");
                         return -1;
                     }
                     send(short_socket, buffer, num_fread, 0);
@@ -244,12 +256,12 @@ int main() {
                 }
                 fclose(fp);
                 if (remove(filename) != 0) {
-                    perror("Remove Error");
+                    DBGprint("Remove Error");
                 }
                 close(short_socket);
             }
             pthread_mutex_unlock(&mutex[para->num]);
-            printf("Send File:\t%s Successful!\n", filename);
+            DBGprint("Send File:\t%s Successful!\n", filename);
         }
         close(sock_client);
 	}
