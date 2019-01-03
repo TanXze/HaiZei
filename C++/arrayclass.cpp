@@ -15,43 +15,63 @@ class Array {
     public:
         Array() {
             length = 10;
+            data = new int[length];
             for (int i = 0; i < length; i++) {
                 data[i] = 0;
             }
         }
         Array(int len) {
             length = len;
-            /*for (int i = 0; i < length; i++) {
+            data = new int[length];
+            for (int i = 0; i < length; i++) {
                 data[i] = 0;
-            }*/
+            }
         }
         int getlength() {
             return length;
         }
-        int getnumber(int index) {
-            if (index < length) {
-                return data[index];
-            } else {
-                length = index + 1;
+        bool getvalue(int index, int &value) {
+            bool ret = (index >= 0) && (index < getlength());
+            if (ret) {
+                value = data[index];
             }
+            return ret;
         }
-        int change(int index, int value) {
-            if (index < length) {
+        bool change(int index, int value, int &change) {
+            bool ret = (index >= 0) && (index < getlength());
+            if (ret) {
                 data[index] = value;
-            } else {
-                length = index + 1;
+                change = data[index];
             }
+            return ret;
+        }
+        ~Array() {
+            delete[] data;
+            cout << "delete" << endl;
         }
 };
 
 int main() {
     Array t1;
-    cout << t1.getlength() << endl;
-    //cout << t1.getnumber(5) << endl;
-    //cout << t1.change(5, 4) << endl;
+    int value, change;
+    cout << "t1.length:" << t1.getlength() << endl;
+    cout << "t1.getvalue:" << endl;
+    for (int i = 0; i < t1.getlength(); i++) {
+        t1.getvalue(i, value);
+        cout << i << ":" << value << endl;
+    }
+    cout << "t1.change:" << endl;
+    for (int i = 0; i < t1.getlength(); i++) {
+        t1.change(i, i + 1, change);
+        cout << i << ":" << change << endl;
+    }
     Array t2(15);
-    cout << t2.getlength() << endl;
-    //cout << t2.getnumber(9) << endl;
-    //cout << t2.change(12, 8) << endl;
+    cout << "t2.getlength:" << t2.getlength() << endl;
+    cout << "t2.getvalue:" << t2.getvalue(20, value) << endl;
+    cout << "t2.getvalue:" << t2.getvalue(10, value) << endl;
+    cout << value << endl;
+    cout << "t2.change:" << t2.change(20, 5, change) << endl;
+    cout << "t2.change:" << t2.change(10, 9, change) << endl;
+    cout << change << endl;
     return 0;
 }
