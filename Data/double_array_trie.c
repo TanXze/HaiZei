@@ -103,8 +103,8 @@ int main() {
     while (scanf("%s", str) != EOF) {
         printf("search %s = %d\n", str, search(trie, str));
     }
-    printf("Normal Trie : %d\n", cnt1 * sizeof(Node));
-    printf("Double Array Trie : %d\n", cnt2 * sizeof(DATNode));
+    printf("Normal Trie : %ld\n", cnt1 * sizeof(Node));
+    printf("Double Array Trie : %ld\n", cnt2 * sizeof(DATNode));
     for (int i = 0; i <= cnt2; i++) {
         printf("%d %d %d\n", i, trie[i].base, trie[i].check);
     }
