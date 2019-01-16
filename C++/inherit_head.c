@@ -14,10 +14,10 @@ typedef struct class_demo {
     int j;
 } class_demo;
 
-typedef struct Derived {
+typedef struct class_deverid {
     class_demo d;
     int k;
-} Derived;
+} class_deverid;
 
 demo* demo_init(int i, int j) {
     class_demo *p = (class_demo *)malloc(sizeof(class_demo));
@@ -44,5 +44,29 @@ int add(demo *pthis, int value) {
 }
 
 void free_demo(demo *pthis) {
+    free(pthis);
+}
+
+deverid *deverid_init(int i, int j, int k) {
+    class_deverid *p = (class_deverid *)malloc(sizeof(class_deverid));
+    if (p != NULL) {
+        p->d.i = i;
+        p->d.j = j;
+        p->k = k;
+    }
+    return p;
+}
+
+int getK(deverid *pthis) {
+    class_deverid *p = (class_deverid *)pthis;
+    return p->k;
+}
+
+int add1(deverid *pthis, int value) {
+    class_deverid *p = (class_deverid *)pthis;
+    return p->d.i + p->d.j + p->k + value;
+}
+
+void free_deverid(deverid *pthis) {
     free(pthis);
 }

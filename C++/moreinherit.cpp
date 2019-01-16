@@ -21,6 +21,40 @@ class B : public A {};
 class C : public A {};
 class D : public B, public C {}; //多继承
 
+class People {
+    private:
+        string name;
+        int age;
+    public:
+        People(string s1, int v1) : name(s1), age(v1) { 
+            
+        } 
+        void print() { 
+            cout << name << " " << age << endl;
+        }
+};
+
+class Teacher : virtual public People {
+    public:
+        Teacher(string s1, int v1) : People(s1, v1) { 
+            
+        }
+};
+
+class Student : virtual public People {
+    public: 
+        Student(string s1, int v1) : People(s1, v1) {
+            
+        }
+};
+
+class Doctor : public Teacher, public Student {
+    public:
+        Doctor(string s1, int v1) : Teacher(s1 + "1", v1 + 1), Student(s1, v1), People(s1, v1) { 
+            
+        }
+};
+
 int main() {
     D d;
     B *pb = &d;
@@ -37,5 +71,9 @@ int main() {
     cout << &d << endl; //先继承B,与B的地址相同
     d.B::print();
     d.C::print();
+
+    Doctor dd("qwe", 28);
+    dd.Teacher()::print();
+    dd.Student()::print();
     return 0;
 }

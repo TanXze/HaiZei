@@ -14,5 +14,11 @@ int main() {
     printf("j = %d\n", getJ(p));
     printf("i + j = %d\n", add(p, 3));
     free_demo(p);
+    deverid *d = deverid_init(1, 2, 3);
+    printf("i = %d\n", getI(d));
+    printf("j = %d\n", getJ(d));
+    printf("k = %d\n", getK(d));
+    printf("add = %d\n", add1(d, 5));
+    free_deverid(d);
     return 0;
 }
