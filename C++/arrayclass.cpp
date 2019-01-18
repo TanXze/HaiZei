@@ -45,6 +45,27 @@ class Array {
             }
             return ret;
         }
+        Array& operator=(const Array &obj) { 
+            if (this != &obj) {
+                int *p = new int[obj.length];
+                if (p) {
+                    for (int i = 0; i < obj.length; i++) {
+                        p[i] = obj.data[i];
+                    }
+                    length = obj.length;
+                    delete[] data;
+                    data = p;
+                }
+            }
+            return *this;
+        }
+        int& operator[](int index) { 
+            if ((index < length) && (index >= 0)) {
+                return data[index];
+            } else {
+                throw "txz";
+            }
+        }
         ~Array() {
             delete[] data;
             cout << "delete" << endl;
@@ -73,5 +94,22 @@ int main() {
     cout << "t2.change:" << t2.change(20, 5, change) << endl;
     cout << "t2.change:" << t2.change(10, 9, change) << endl;
     cout << change << endl;
+    cout << "t2.getvalue:" << endl;
+    for (int i = 0; i < t2.getlength(); i++) {
+        t2.getvalue(i, value);
+        cout << i << ":" << value << endl;
+    }
+
+    t2 = t1;
+    cout << "operator=:" << endl;
+    for (int i = 0; i < t2.getlength(); i++) {
+        t2.getvalue(i, value);
+        cout << i << ":" << value << endl;
+    }
+
+    cout << "operator[]:" << endl;
+    for (int i = 0; i < t2.getlength(); i++) {
+        cout << i << ":" << t2[i] << endl;
+    }
     return 0;
 }
